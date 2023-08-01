@@ -93,6 +93,7 @@
       <option name="SPACE_WITHIN_ANNOTATION_PARENTHESES" value="true" />
     </codeStyleSettings>
     <codeStyleSettings language="JavaScript">
+      <option name="RIGHT_MARGIN" value="80" />
       <option name="SOFT_MARGINS" value="80" />
       <indentOptions>
         <option name="INDENT_SIZE" value="2" />
@@ -110,6 +111,7 @@
       </indentOptions>
     </codeStyleSettings>
     <codeStyleSettings language="TypeScript">
+      <option name="RIGHT_MARGIN" value="80" />
       <option name="SOFT_MARGINS" value="80" />
       <indentOptions>
         <option name="INDENT_SIZE" value="2" />

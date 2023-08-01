@@ -1,2 +1,3 @@
 node_modules
-webpack.config.ts
+webpack.*.ts
+src/dev

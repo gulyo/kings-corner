@@ -1,0 +1,111 @@
+@keyframes bouncing {
+  from {
+    top: 50%;
+  }
+  18% {
+    transform: scale(1, 1);
+  }
+  25% {
+    top: calc(50% + 25px);
+    transform: scale(1.2, .8);
+  }
+  32% {
+    transform: scale(1, 1);
+  }
+  50% {
+    top: 50%;
+  }
+  55% {
+    transform: scale(.8, 1.2);
+  }
+  75% {
+    top: calc(50% - 25px);
+    transform: scale(1, 1);
+  }
+  to {
+    top: 50%;
+  }
+}
+
+@keyframes shadow {
+  from {
+    transform: scale(.5, .3);
+    background-color: #aaaaaa;
+  }
+  18% {
+    transform: scale(.8, .3);
+  }
+  25% {
+    transform: scale(1, .2);
+    background-color: #888888;
+  }
+  32% {
+    transform: scale(.8, .3);
+  }
+  50% {
+    transform: scale(.5, .3);
+    background-color: #aaaaaa;
+  }
+  55% {
+    transform: scale(.4, .3);
+  }
+  75% {
+    transform: scale(.3, .2);
+    background-color: #cccccc;
+  }
+  to {
+    transform: scale(.5, .3);
+    background-color: #aaaaaa;
+  }
+}
+
+
+.spinner {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    background: radial-gradient(ellipse at 75% 12px, #00ffdd, #00bbcc 25%, #00aa99 50%);
+    border-radius: 50%;
+    margin: -25px 0 0 -25px;
+    transform-origin: 50% 100%;
+
+    animation-name: bouncing;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+
+    z-index: 16;
+  }
+
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: calc(50% + 25px);
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    background-color: #aaaaaa;
+    border-radius: 50%;
+    margin: -25px 0 0 -25px;
+    transform-origin: 50% 100%;
+
+    animation-name: shadow;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+
+    z-index: 8;
+  }
+}

@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
+    "module": "CommonJS",
     "moduleResolution": "node",
     "target": "ESNext",
     "removeComments": true,
@@ -23,14 +23,16 @@
     ],
     "sourceMap": true,
     "noImplicitAny": false,
-    "plugins": [{ "name": "typescript-plugin-css-modules" }]
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules"
+      }
+    ]
   },
   "exclude": [
-    "node_modules",
     "build"
   ],
   "include": [
-    "./src",
-    "webpack.config.ts"
+    "./src"
   ]
 }
