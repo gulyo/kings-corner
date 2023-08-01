@@ -1,3 +1,4 @@
-import image001 from "./resource/001.jpg";
+import { loadImages } from "./loadImages";
+import { wrapReact } from "../main";
 
-console.log(image001);
+loadImages().then(wrapReact);

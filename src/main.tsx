@@ -6,16 +6,18 @@ import { store } from "./redux";
 import { Provider } from "react-redux";
 import { removePreloader } from "./preLoad/removePreloader";
 
-const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement,
-);
+export const wrapReact = (): void => {
+  const root = ReactDOM.createRoot(
+    document.getElementById("root") as HTMLElement,
+  );
 
-removePreloader();
+  removePreloader();
 
-root.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </React.StrictMode>,
-);
+  root.render(
+    <React.StrictMode>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </React.StrictMode>,
+  );
+};

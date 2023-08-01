@@ -26,15 +26,17 @@ export const webpackConfig = ({}: WebpackEnv): Configuration => ({
   entry: {
     index: {
       import: "./src/index.ts",
+      asyncChunks: true,
+      runtime: false,
+    },
+    main: {
+      import: "./src/main.tsx",
+      asyncChunks: true,
     },
     image: {
       import: "./src/image/index.ts",
       asyncChunks: true,
-    },
-    main: {
-      import: "./src/main.tsx",
-      dependOn: ["image"],
-      asyncChunks: true,
+      dependOn: ["main"],
     },
   },
   resolve: {

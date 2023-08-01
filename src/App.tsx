@@ -8,6 +8,7 @@ import { toastMessage } from "./util";
 import { t } from "ttag";
 import { useSelector } from "react-redux";
 import { uiIsLoggedInSelector } from "./redux/selector";
+import { checkPasswordThunk, store } from "./redux";
 
 function App(): JSX.Element {
   const theme = useTheme();
@@ -19,6 +20,8 @@ function App(): JSX.Element {
       type: "success",
       message: t`Welcome to King's Corner`,
     });
+
+    store.dispatch(checkPasswordThunk("cica"));
   }, []);
 
   return (
