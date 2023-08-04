@@ -1,8 +1,8 @@
 import { ThunkAction } from "redux-thunk";
+import { t } from "ttag";
 import { RootState } from "../state";
 import { comLogger, toastMessage } from "../../util";
 import { uiSetIsLoggedInAction, uiSetLoadingAction } from "../action";
-import { t } from "ttag";
 import { store } from "../store";
 
 export const checkPasswordThunk = (

@@ -1,31 +1,36 @@
-import resource001 from "./resource/001.jpg";
-import resource002 from "./resource/002.jpg";
-import resource003 from "./resource/003.jpg";
+import resourceParty from "./resource/party.jpg";
+import resourceCulture from "./resource/culture.jpg";
+import resourceMap from "./resource/map.jpg";
+import resourceView from "./resource/view.jpg";
 import { comLogger } from "../util";
-
-let imageUrls: string[] = [];
+import { store, uiSetImageUrlsAction } from "../redux";
+import { ImageName, ImageUrlContainer } from "../type";
 
 export const loadImages = async (): Promise<void> => {
   return new Promise((resolve) => {
     let imageCounter = 0;
     let wrapped = false;
 
-    const resources: string[] = [resource001, resource002, resource003];
+    const resources: ImageUrlContainer = {
+      [ImageName.MAP]: resourceMap,
+      [ImageName.CULTURE]: resourceCulture,
+      [ImageName.PARTY]: resourceParty,
+      [ImageName.VIEW]: resourceView,
+    };
+    const urls = Object.values(resources);
 
     const increase = (): void => {
       ++imageCounter;
-      if (!wrapped && imageCounter >= resources.length) {
+      if (!wrapped && imageCounter >= urls.length) {
         wrapped = true;
         resolve();
       }
     };
 
-    const containers = [resource001, resource002, resource003].map(
-      (resource) => ({
-        url: resource,
-        image: new Image(),
-      }),
-    );
+    const containers = urls.map((resource) => ({
+      url: resource,
+      image: new Image(),
+    }));
     containers.forEach(({ image, url }) => {
       image.onload = increase;
       image.onerror = () => {
@@ -34,8 +39,6 @@ export const loadImages = async (): Promise<void> => {
       };
       image.src = url;
     });
-    imageUrls = containers.map((container) => container.url);
+    store.dispatch(uiSetImageUrlsAction(resources));
   });
 };
-
-export const getImageUrls = (): string[] => imageUrls;

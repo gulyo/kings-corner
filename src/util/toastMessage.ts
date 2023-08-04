@@ -1,7 +1,7 @@
-import { Message } from "./Message";
 import { Subject } from "rxjs";
 import { toast } from "react-toastify";
 import type { ToastOptions } from "react-toastify/dist/types";
+import { Message } from "./Message";
 
 const messageBus = new Subject<Message>();
 

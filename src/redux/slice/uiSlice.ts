@@ -1,7 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { SliceName } from "../util";
 import { uiInitialState } from "../initialState";
-import { uiReducerSetIsLoggedIn, uiReducerSetLoading } from "../reducer";
+import {
+  uiReducerSetImageUrls,
+  uiReducerSetIsLoggedIn,
+  uiReducerSetLoading,
+} from "../reducer";
 import { UiAction } from "../action";
 
 const slice = createSlice({
@@ -10,6 +14,7 @@ const slice = createSlice({
   reducers: {
     [UiAction.SET_IS_LOGGED_IN]: uiReducerSetIsLoggedIn,
     [UiAction.SET_LOADING]: uiReducerSetLoading,
+    [UiAction.SET_IMAGE_URLS]: uiReducerSetImageUrls,
   },
 });
 

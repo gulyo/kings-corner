@@ -4,8 +4,11 @@
     "es2021": true
   },
   "extends": [
+    "airbnb",
+    "airbnb-typescript",
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
+    "plugin:jsx-a11y/recommended",
     "prettier",
     "prettier/prettier",
     "plugin:prettier/recommended",
@@ -13,6 +16,7 @@
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
+    "project": "./tsconfig.json",
     "ecmaFeatures": {
       "jsx": true
     },
@@ -23,7 +27,8 @@
     "import",
     "react",
     "@typescript-eslint",
-    "react-hooks"
+    "react-hooks",
+    "jsx-a11y"
   ],
   "rules": {
     "react/prefer-stateless-function": "off",
@@ -69,7 +74,9 @@
     "react/prop-types": "off",
     "react/function-component-definition": "off",
     "class-methods-use-this": "off",
-    "react/sort-comp": "off"
+    "react/sort-comp": "off",
+    "no-param-reassign": "off",
+    "no-plusplus": "off"
   },
   "settings": {
     "react": {

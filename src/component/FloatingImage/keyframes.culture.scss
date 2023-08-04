@@ -1,0 +1,49 @@
+@keyframes cultureLandscape {
+  from {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0;
+    background-position: 25% 50%;
+    background-size: 200vw auto;
+  }
+  42% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  62% {
+    opacity: 0;
+    background-position: 50% 50%;
+    background-size: 100vw auto;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes culturePortrait {
+  from {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0;
+  }
+  42% {
+    opacity: 1;
+    background-position: 25% 50%;
+    background-size: auto 200vh;
+  }
+  60% {
+    opacity: 1;
+  }
+  62% {
+    opacity: 0;
+    background-position: 50% 50%;
+    background-size: auto 100vh;
+  }
+  to {
+    opacity: 0;
+  }
+}

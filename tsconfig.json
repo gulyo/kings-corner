@@ -17,9 +17,7 @@
       ]
     },
     "lib": [
-      "esnext",
-      "dom",
-      "dom.iterable"
+      "dom"
     ],
     "sourceMap": true,
     "noImplicitAny": false,

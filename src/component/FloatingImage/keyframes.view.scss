@@ -1,0 +1,53 @@
+@keyframes viewLandscape {
+  from {
+    opacity: 0;
+  }
+  60% {
+    opacity: 0;
+    background-position: 50% 50%;
+    background-size: 100vw auto;
+    filter: grayscale(.6);
+  }
+  62% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+    background-position: 40% 40%;
+    background-size: 150vw auto;
+    filter: grayscale(0);
+  }
+  82% {
+    opacity: 0;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes viewPortrait {
+  from {
+    opacity: 0;
+  }
+  60% {
+    opacity: 0;
+    background-position: 50% 50%;
+    background-size: auto 100vh;
+    filter: grayscale(.6);
+  }
+  62% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+    background-position: 40% 40%;
+    background-size: auto 150vh;
+    filter: grayscale(0);
+  }
+  82% {
+    opacity: 0;
+  }
+  to {
+    opacity: 0;
+  }
+}

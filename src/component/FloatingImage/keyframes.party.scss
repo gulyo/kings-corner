@@ -1,0 +1,63 @@
+@keyframes partyLandscape {
+  from {
+    opacity: 0;
+  }
+  80% {
+    opacity: 0;
+    background-position: 20% 30%;
+    background-size: 150vw auto;
+    filter: saturate(1);
+  }
+  82% {
+    opacity: 1;
+  }
+  86% {
+    filter: saturate(1.5);
+  }
+  89% {
+    background-position: 40% 70%;
+    background-size: 140vw auto;
+    filter: saturate(1.2);
+  }
+  98% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    background-position: 50% 50%;
+    background-size: 100vw auto;
+    filter: saturate(.6);
+  }
+}
+
+@keyframes partyPortrait {
+  from {
+    opacity: 0;
+  }
+  80% {
+    opacity: 0;
+    background-position: 20% 30%;
+    background-size: auto 150vh;
+    filter: saturate(1);
+  }
+  82% {
+    opacity: 1;
+  }
+  86% {
+    filter: saturate(1.5);
+  }
+  89% {
+    background-position: 40% 70%;
+    background-size: auto 140vh;
+    filter: saturate(1.2);
+  }
+  98% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    background-position: 60% 60%;
+    background-size: auto 120vh;
+    filter: saturate(.6);
+  }
+}

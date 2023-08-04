@@ -1,0 +1,99 @@
+@import "/src/style/themes";
+@import "keyframes.map";
+@import "keyframes.culture";
+@import "keyframes.party";
+@import "keyframes.view";
+
+$animation-duration: 48s;
+
+@mixin metaCommon {
+  content: '';
+  position: absolute;
+  display: block;
+  height: 100%;
+  width: 100%;
+  z-index: 8;
+}
+
+.anchor {
+  position: fixed;
+  overflow: visible;
+  display: block;
+  top: 0;
+  left: 0;
+
+  margin: 0;
+  padding: 0;
+
+  z-index: -1;
+}
+
+.image {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+
+  overflow: hidden;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  transform-origin: 50% 50%;
+
+  margin: 0;
+  padding: 0;
+
+  opacity: 0;
+
+  &:before {
+    @include metaCommon;
+    background: linear-gradient(to bottom, theme-var(--color-background), transparent 20px, transparent calc(100% - 20px), theme-var(--color-background));
+  }
+
+  &:after {
+    @include metaCommon;
+    background: linear-gradient(to right, theme-var(--color-background), transparent 20px, transparent calc(100% - 20px), theme-var(--color-background));
+  }
+}
+
+@media (orientation: landscape) {
+  .imageMap {
+    animation-name: mapLandscape;
+    animation-duration: $animation-duration;
+  }
+  .imageParty {
+    animation-name: partyLandscape;
+    animation-duration: $animation-duration;
+  }
+  .imageCulture {
+    animation-name: cultureLandscape;
+    animation-duration: $animation-duration;
+  }
+  .imageView {
+    animation-name: viewLandscape;
+    animation-duration: $animation-duration;
+  }
+}
+
+@media (orientation: portrait) {
+  .imageMap {
+    animation-name: mapPortrait;
+    animation-duration: $animation-duration;
+  }
+  .imageParty {
+    animation-name: partyPortrait;
+    animation-duration: $animation-duration;
+  }
+  .imageCulture {
+    animation-name: culturePortrait;
+    animation-duration: $animation-duration;
+  }
+  .imageView {
+    animation-name: viewPortrait;
+    animation-duration: $animation-duration;
+  }
+}

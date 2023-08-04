@@ -1,0 +1,21 @@
+// See: https://bcodes.io/blog/post/theming-css-variables-in-scss
+
+$theme-map-light: (
+        "--color-main": #00aa99,
+        "--color-100": #00bbcc,
+        "--color-50": #00ffdd,
+        "--shadow-200": #888888,
+        "--shadow-100": #aaaaaa,
+        "--shadow-50": #cccccc,
+        "--color-background": #ffffff,
+);
+
+$theme-map-dark: (
+        "--color-main": #0069aa,
+        "--color-100": #004799,
+        "--color-50": #003688,
+        "--shadow-200": #888888,
+        "--shadow-100": #666666,
+        "--shadow-50": #222222,
+        "--color-background": #000000,
+);
