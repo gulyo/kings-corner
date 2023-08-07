@@ -5,6 +5,7 @@ import resourceView from "./resource/view.jpg";
 import { comLogger } from "../util";
 import { store, uiSetImageUrlsAction } from "../redux";
 import { ImageName, ImageUrlContainer } from "../type";
+import { imageNameCssVarRatioMap } from "./imageNameCssVarRatioMap";
 
 export const loadImages = async (): Promise<void> => {
   return new Promise((resolve) => {
@@ -17,7 +18,7 @@ export const loadImages = async (): Promise<void> => {
       [ImageName.PARTY]: resourceParty,
       [ImageName.VIEW]: resourceView,
     };
-    const urls = Object.values(resources);
+    const urls = Object.entries(resources);
 
     const increase = (): void => {
       ++imageCounter;
@@ -27,12 +28,20 @@ export const loadImages = async (): Promise<void> => {
       }
     };
 
-    const containers = urls.map((resource) => ({
+    const containers = urls.map(([name, resource]) => ({
+      name,
       url: resource,
       image: new Image(),
     }));
-    containers.forEach(({ image, url }) => {
-      image.onload = increase;
+    const htmlStyle = document.documentElement.style;
+    containers.forEach(({ image, url, name }) => {
+      image.onload = () => {
+        increase();
+        htmlStyle.setProperty(
+          imageNameCssVarRatioMap[name],
+          (image.width / image.height).toString(10),
+        );
+      };
       image.onerror = () => {
         increase();
         comLogger.error(`${url} cannot be loaded`);

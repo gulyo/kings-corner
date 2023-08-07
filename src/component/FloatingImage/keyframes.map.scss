@@ -1,111 +1,111 @@
 @keyframes mapLandscape {
   from {
     opacity: 1;
-    background-position: 45% 50%;
-    background-size: 300vw auto;
+    background-position: 46% 50%;
+    background-size: calc(300vw * var(--kings-image-map-ratio)) auto;
   }
   3% {
-    background-position: 45% 50%;
-    background-size: 300vw auto;
+    background-position: 46% 50%;
+    background-size: calc(300vw * var(--kings-image-map-ratio)) auto;
   }
   9% {
     background-position: 40% 50%;
-    background-size: 200vw auto;
+    background-size: calc(200vw * var(--kings-image-map-ratio)) auto;
   }
   15% {
     background-position: 30% 55%;
-    background-size: 225vw auto;
+    background-size: calc(225vw * var(--kings-image-map-ratio)) auto;
   }
   22% {
     background-position: 25% 15%;
-    background-size: 200vw auto;
+    background-size: calc(200vw * var(--kings-image-map-ratio)) auto;
   }
   25% {
     background-position: 25% 15%;
-    background-size: 200vw auto;
+    background-size: calc(200vw * var(--kings-image-map-ratio)) auto;
   }
   33% {
     background-position: 35% 85%;
-    background-size: 175vw auto;
+    background-size: calc(175vw * var(--kings-image-map-ratio)) auto;
   }
   35% {
     background-position: 35% 85%;
-    background-size: 175vw auto;
+    background-size: calc(175vw * var(--kings-image-map-ratio)) auto;
   }
   40% {
     opacity: 1;
-    background-position: 45% 50%;
-    background-size: 300vw auto;
+    background-position: 46% 50%;
+    background-size: calc(300vw * var(--kings-image-map-ratio)) auto;
   }
   42% {
     opacity: 0;
-    background-position: 45% 50%;
-    background-size: 300vw auto;
+    background-position: 46% 50%;
+    background-size: calc(300vw * var(--kings-image-map-ratio)) auto;
   }
   98% {
     opacity: 0;
-    background-position: 45% 50%;
-    background-size: 300vw auto;
+    background-position: 46% 50%;
+    background-size: calc(300vw * var(--kings-image-map-ratio)) auto;
   }
   to {
     opacity: 1;
-    background-position: 45% 50%;
-    background-size: 300vw auto;
+    background-position: 46% 50%;
+    background-size: calc(300vw * var(--kings-image-map-ratio)) auto;
   }
 }
 
 @keyframes mapPortrait {
   from {
     opacity: 1;
-    background-position: 45% 50%;
-    background-size: auto 300vh;
+    background-position: 46% 50%;
+    background-size: auto calc(300vh * var(--kings-image-map-ratio));
   }
   3% {
-    background-position: 45% 50%;
-    background-size: auto 300vh;
+    background-position: 46% 50%;
+    background-size: auto calc(300vh * var(--kings-image-map-ratio));
   }
   9% {
     background-position: 40% 50%;
-    background-size: auto 200vh;
+    background-size: auto calc(200vh * var(--kings-image-map-ratio));
   }
   15% {
     background-position: 30% 55%;
-    background-size: auto 225vh;
+    background-size: auto calc(225vh * var(--kings-image-map-ratio));
   }
   22% {
     background-position: 25% 15%;
-    background-size: auto 200vh;
+    background-size: auto calc(200vh * var(--kings-image-map-ratio));
   }
   25% {
     background-position: 25% 15%;
-    background-size: auto 200vh;
+    background-size: auto calc(200vh * var(--kings-image-map-ratio));
   }
   33% {
     background-position: 35% 85%;
-    background-size: auto 175vh;
+    background-size: auto calc(175vh * var(--kings-image-map-ratio));
   }
   35% {
     background-position: 35% 85%;
-    background-size: auto 175vh;
+    background-size: auto calc(175vh * var(--kings-image-map-ratio));
   }
   40% {
     opacity: 1;
-    background-position: 45% 50%;
-    background-size: auto 300vh;
+    background-position: 46% 50%;
+    background-size: auto calc(300vh * var(--kings-image-map-ratio));
   }
   42% {
     opacity: 0;
-    background-position: 45% 50%;
-    background-size: auto 300vh;
+    background-position: 46% 50%;
+    background-size: auto calc(300vh * var(--kings-image-map-ratio));
   }
   98% {
     opacity: 0;
-    background-position: 45% 50%;
-    background-size: auto 300vh;
+    background-position: 46% 50%;
+    background-size: auto calc(300vh * var(--kings-image-map-ratio));
   }
   to {
     opacity: 1;
-    background-position: 45% 50%;
-    background-size: auto 300vh;
+    background-position: 46% 50%;
+    background-size: auto calc(300vh * var(--kings-image-map-ratio));
   }
 }

@@ -5,7 +5,7 @@
   60% {
     opacity: 0;
     background-position: 50% 50%;
-    background-size: 100vw auto;
+    background-size: calc(100vw * var(--kings-image-view-ratio)) auto;
     filter: grayscale(.6);
   }
   62% {
@@ -14,7 +14,7 @@
   80% {
     opacity: 1;
     background-position: 40% 40%;
-    background-size: 150vw auto;
+    background-size: calc(150vw * var(--kings-image-view-ratio)) auto;
     filter: grayscale(0);
   }
   82% {
@@ -32,7 +32,7 @@
   60% {
     opacity: 0;
     background-position: 50% 50%;
-    background-size: auto 100vh;
+    background-size: auto calc(100vh * var(--kings-image-view-ratio));
     filter: grayscale(.6);
   }
   62% {
@@ -41,7 +41,7 @@
   80% {
     opacity: 1;
     background-position: 40% 40%;
-    background-size: auto 150vh;
+    background-size: auto calc(150vh * var(--kings-image-view-ratio));
     filter: grayscale(0);
   }
   82% {

@@ -5,7 +5,7 @@
   80% {
     opacity: 0;
     background-position: 20% 30%;
-    background-size: 150vw auto;
+    background-size: calc(150vw * var(--kings-image-party-ratio)) auto;
     filter: saturate(1);
   }
   82% {
@@ -16,7 +16,7 @@
   }
   89% {
     background-position: 40% 70%;
-    background-size: 140vw auto;
+    background-size: calc(140vw * var(--kings-image-party-ratio)) auto;
     filter: saturate(1.2);
   }
   98% {
@@ -25,7 +25,7 @@
   to {
     opacity: 0;
     background-position: 50% 50%;
-    background-size: 100vw auto;
+    background-size: calc(100vw * var(--kings-image-party-ratio)) auto;
     filter: saturate(.6);
   }
 }
@@ -37,7 +37,7 @@
   80% {
     opacity: 0;
     background-position: 20% 30%;
-    background-size: auto 150vh;
+    background-size: auto calc(150vh * var(--kings-image-party-ratio));
     filter: saturate(1);
   }
   82% {
@@ -48,7 +48,7 @@
   }
   89% {
     background-position: 40% 70%;
-    background-size: auto 140vh;
+    background-size: auto calc(140vh * var(--kings-image-party-ratio));
     filter: saturate(1.2);
   }
   98% {
@@ -57,7 +57,7 @@
   to {
     opacity: 0;
     background-position: 60% 60%;
-    background-size: auto 120vh;
+    background-size: auto calc(100vh * var(--kings-image-party-ratio));
     filter: saturate(.6);
   }
 }

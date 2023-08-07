@@ -2,6 +2,11 @@
 @import 'mixins';
 
 html {
+  --kings-image-map-ratio: 0;
+  --kings-image-culture-ratio: 0;
+  --kings-image-view-ratio: 0;
+  --kings-image-party-ratio: 0;
+
   &.light {
     @include spread-map($theme-map-light);
   }
