@@ -7,6 +7,11 @@ html {
   --kings-image-view-ratio: 0;
   --kings-image-party-ratio: 0;
 
+  --spacing-base: 8px;
+  --spacing-medium: calc(var(--spacing-base) * 2);
+  --spacing-big: calc(var(--spacing-base) * 8);
+  --spacing-huge: calc(var(--spacing-base) * 16);
+
   &.light {
     @include spread-map($theme-map-light);
   }

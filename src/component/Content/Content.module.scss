@@ -23,12 +23,15 @@
 
 .anchor {
   position: absolute;
-  max-width: 800px;
+  display: flex;
+  width: 100vw;
   transform: translate(-50%, 0);
   left: 50%;
 }
 
 .container {
+  display: flex;
+  width: 100%;
   animation-name: appear;
   @include animationTiming;
 }
