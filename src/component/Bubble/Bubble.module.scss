@@ -1,0 +1,27 @@
+@import "/src/style/themes";
+
+.bubble {
+  display: flex;
+  padding: var(--spacing-medium);
+  margin: var(--spacing-medium);
+  background: theme-var(--color-background-semi-transparent);
+  white-space: nowrap;
+  justify-content: center;
+
+  transition: all;
+  transition-duration: .3s;
+  transition-timing-function: ease-in;
+}
+
+@media(orientation: landscape) {
+  .bubble {
+    flex-grow: 0;
+  }
+}
+
+@media(orientation: portrait) {
+  .bubble {
+    flex-grow: 1;
+    margin: var(--spacing-medium) 0;
+  }
+}

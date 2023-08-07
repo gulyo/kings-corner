@@ -6,14 +6,14 @@
 
 $animation-duration: 30s;
 
-@mixin metaCommon {
-  content: '';
-  position: absolute;
-  display: block;
-  height: 100%;
-  width: 100%;
-  z-index: 8;
-}
+//@mixin metaCommon {
+//  content: '';
+//  position: absolute;
+//  display: block;
+//  height: 100%;
+//  width: 100%;
+//  z-index: 8;
+//}
 
 .anchor {
   position: fixed;
@@ -33,8 +33,8 @@ $animation-duration: 30s;
   position: absolute;
   top: 0;
   left: 0;
-  height: 100vh;
-  width: 100vw;
+  height: 100dvh;
+  width: 100dvw;
 
   overflow: hidden;
   background-position: center;
@@ -49,15 +49,15 @@ $animation-duration: 30s;
 
   opacity: 0;
 
-  &:before {
-    @include metaCommon;
-    background: linear-gradient(to bottom, theme-var(--color-background), transparent 20px, transparent calc(100% - 20px), theme-var(--color-background));
-  }
-
-  &:after {
-    @include metaCommon;
-    background: linear-gradient(to right, theme-var(--color-background), transparent 20px, transparent calc(100% - 20px), theme-var(--color-background));
-  }
+  //&:before {
+  //  @include metaCommon;
+  //  background: linear-gradient(to bottom, theme-var(--color-background), transparent var(--spacing-medium), transparent calc(100% - var(--spacing-base)), theme-var(--color-background));
+  //}
+  //
+  //&:after {
+  //  @include metaCommon;
+  //  background: linear-gradient(to right, theme-var(--color-background), transparent var(--spacing-medium), transparent calc(100% - var(--spacing-base)), theme-var(--color-background));
+  //}
 }
 
 @media (orientation: landscape) {

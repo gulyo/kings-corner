@@ -8,14 +8,16 @@ $theme-map-light: (
         "--shadow-100": #aaaaaa,
         "--shadow-50": #cccccc,
         "--color-background": #ffffff,
+        "--color-background-semi-transparent": rgba(255, 255, 255, .85),
 );
 
 $theme-map-dark: (
-        "--color-main": #0069aa,
-        "--color-100": #004799,
-        "--color-50": #003688,
+        "--color-main": #007abb,
+        "--color-100": #0058aa,
+        "--color-50": #004799,
         "--shadow-200": #888888,
         "--shadow-100": #666666,
         "--shadow-50": #222222,
         "--color-background": #000000,
+        "--color-background-semi-transparent": rgba(0, 0, 0, .85),
 );

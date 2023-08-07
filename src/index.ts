@@ -6,7 +6,7 @@ const getHours = (): number => new Date().getHours();
 export const applyTheme = (): void => {
   const hours = getHours();
   if (hours > 20 || hours < 6) {
-    document.documentElement.classList.add("light");
+    document.documentElement.classList.add("dark");
   } else {
     document.documentElement.classList.add("light");
   }
