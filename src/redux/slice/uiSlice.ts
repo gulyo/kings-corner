@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { SliceName } from "../util";
 import { uiInitialState } from "../initialState";
 import {
+  uiReducerSetDisplayLocation,
   uiReducerSetImageUrls,
   uiReducerSetIsLoggedIn,
   uiReducerSetLoading,
@@ -15,6 +16,7 @@ const slice = createSlice({
     [UiAction.SET_IS_LOGGED_IN]: uiReducerSetIsLoggedIn,
     [UiAction.SET_LOADING]: uiReducerSetLoading,
     [UiAction.SET_IMAGE_URLS]: uiReducerSetImageUrls,
+    [UiAction.SET_DISPLAY_LOCATION]: uiReducerSetDisplayLocation,
   },
 });
 

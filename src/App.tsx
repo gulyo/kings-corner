@@ -1,11 +1,11 @@
-import React, { JSX, useEffect } from "react";
+import React, { FC, PropsWithChildren, useEffect } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import { t } from "ttag";
 import { toastMessage } from "./util";
-import { Layout } from "./component/Layout/Layout";
+import { Layout } from "./component/Layout";
 
-function App(): JSX.Element {
+export const App: FC<PropsWithChildren> = () => {
   useEffect(() => {
     toastMessage({
       type: "success",
@@ -19,6 +19,6 @@ function App(): JSX.Element {
       <ToastContainer />
     </>
   );
-}
+};
 
 export default App;

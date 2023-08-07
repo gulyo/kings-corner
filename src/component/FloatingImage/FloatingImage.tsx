@@ -1,11 +1,11 @@
-import React, { CSSProperties, FC } from "react";
+import React, { CSSProperties, FC, PropsWithChildren } from "react";
 
 import { useSelector } from "react-redux";
 import styles from "./FloatinImage.module.scss";
 import { uiImageUrlsSelector } from "../../redux/selector";
 import { ImageName } from "../../type";
 
-export const FloatingImage: FC<Record<string, unknown>> = () => {
+export const FloatingImage: FC<PropsWithChildren> = () => {
   const {
     [ImageName.MAP]: urlMap,
     [ImageName.CULTURE]: urlCulture,
