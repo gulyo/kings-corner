@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="3bb5c88f-e92a-4ac4-89e9-a2a04df484df" name="office" url="http://kings-corner.gulyo">
+        <fileTransfer accessType="SFTP" host="office" port="22" sshConfigId="e7194123-6391-44ad-8254-82dbc013dbc3" sshConfig="gulyo@office:22 agent" authAgent="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" isUseRsync="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

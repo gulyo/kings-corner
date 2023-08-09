@@ -1,6 +1,8 @@
 import webpackConfig, { WebpackEnv } from "./webpack.config";
-import { Configuration } from "webpack";
+import type { Configuration } from "webpack";
+import { DefinePlugin } from "webpack";
 import InterpolateHtmlPlugin from "interpolate-html-plugin";
+import HtmlWebpackPlugin from "html-webpack-plugin";
 
 const config = (env: WebpackEnv): Configuration => {
   const baseConfig = webpackConfig(env);
@@ -50,6 +52,14 @@ const config = (env: WebpackEnv): Configuration => {
     },
     plugins: [
       ...baseConfig.plugins,
+      new DefinePlugin({
+        kings: JSON.stringify({ deployLocation: "" }),
+      }),
+      new HtmlWebpackPlugin({
+        // HtmlWebpackPlugin simplifies creation of HTML files to serve your webpack bundles
+        template: "./public/index.html",
+        minify: false,
+      }),
       new InterpolateHtmlPlugin({
         PUBLIC_URL: "http://gulyo.gulyo:3000/",
       }),

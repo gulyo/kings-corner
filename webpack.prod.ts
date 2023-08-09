@@ -1,16 +1,25 @@
 import webpackConfig, { WebpackEnv } from "./webpack.config";
 import type { Configuration } from "webpack";
+import { DefinePlugin } from "webpack";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import TerserPlugin from "terser-webpack-plugin";
 import InterpolateHtmlPlugin from "interpolate-html-plugin";
 import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
 import path from "path";
 import { CleanWebpackPlugin } from "clean-webpack-plugin";
+import HtmlWebpackPlugin from "html-webpack-plugin";
+import CopyWebpackPlugin from "copy-webpack-plugin";
 
 const chunkVendorContainer = { main: true, image: true };
 
 const config = (env: WebpackEnv): Configuration => {
   const baseConfig = webpackConfig(env);
+
+  const deployLocation = "kings-corner";
+
+  const publicPath: string = env.WEBPACK_SERVE
+    ? "http://gulyo.gulyo:3000"
+    : `https://gulyo.no-ip.org/${deployLocation}`;
 
   const buildModules = env.WEBPACK_BUILD
     ? [
@@ -22,8 +31,30 @@ const config = (env: WebpackEnv): Configuration => {
           reportTitle: "King's Corner bundle analysis",
         }),
         new CleanWebpackPlugin(),
+        new CopyWebpackPlugin({
+          options: { concurrency: 4 },
+          patterns: [
+            {
+              from: "./public/*.ico",
+              to: "[name][ext]",
+            },
+            {
+              from: "./public/manifest.json",
+              to: "[name][ext]",
+            },
+            { from: "./public/robots.txt", to: "[name][ext]" },
+          ],
+        }),
+
+        new DefinePlugin({
+          kings: JSON.stringify({ deployLocation }),
+        }),
       ]
-    : [];
+    : [
+        new DefinePlugin({
+          kings: JSON.stringify({ deployLocation: "" }),
+        }),
+      ];
 
   return {
     ...baseConfig,
@@ -71,11 +102,19 @@ const config = (env: WebpackEnv): Configuration => {
     plugins: [
       ...baseConfig.plugins,
       ...buildModules,
+      new HtmlWebpackPlugin({
+        // HtmlWebpackPlugin simplifies creation of HTML files to serve your webpack bundles
+        template: "./public/index.html",
+        minify: {
+          collapseWhitespace: true,
+          removeComments: true,
+          removeAttributeQuotes: true,
+        },
+        publicPath,
+      }),
       new MiniCssExtractPlugin(),
       new InterpolateHtmlPlugin({
-        PUBLIC_URL: env.WEBPACK_SERVE
-          ? "http://gulyo.gulyo:3000/"
-          : "https://kingcorner.hu/",
+        PUBLIC_URL: publicPath,
       }),
     ],
     optimization: {

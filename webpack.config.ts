@@ -2,7 +2,6 @@ import path from "path";
 import type { Configuration as DevServerConfiguration } from "webpack-dev-server";
 import type { Configuration } from "webpack";
 import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
-import HtmlWebpackPlugin from "html-webpack-plugin";
 
 export interface WebpackEnv {
   production?: boolean;
@@ -68,13 +67,7 @@ export const webpackConfig = ({}: WebpackEnv): Configuration => ({
     ],
   },
   devServer,
-  plugins: [
-    new HtmlWebpackPlugin({
-      // HtmlWebpackPlugin simplifies creation of HTML files to serve your webpack bundles
-      template: "./public/index.html",
-      minify: false,
-    }),
-  ],
+  plugins: [],
   optimization: {
     runtimeChunk: "single",
     usedExports: true,
