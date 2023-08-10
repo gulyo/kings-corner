@@ -1,0 +1,106 @@
+@import "/src/style/themes";
+
+@keyframes linkAppear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes linkDisappear {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.navigatorLink {
+  position: fixed;
+  cursor: pointer;
+  pointer-events: all;
+
+  margin: 0;
+
+  background-color: theme-var(--color-background-semi-transparent);
+  color: theme-var(--color-main);
+
+  top: 50dvh;
+  transform: translate(0, -50%);
+  text-decoration: none;
+  padding: var(--spacing-medium);
+
+  border-color: theme-var(--color-main);
+  border-style: solid;
+  border-width: 0;
+
+  z-index: 1024;
+
+  animation-duration: var(--timing-fast);
+  animation-timing-function: linear;
+  animation-name: linkAppear;
+
+  &:visited {
+    color: theme-var(--color-100);
+  }
+
+  &:before {
+    position: absolute;
+    top: 50%;
+  }
+
+  &.left {
+    left: 0;
+
+    &:before {
+      content: "\27A4";
+      left: 0;
+      transform: translateY(-50%) rotateZ(180deg);
+    }
+  }
+
+  &.right {
+    right: 0;
+
+    &:before {
+      content: "\27A4";
+      right: 0;
+      transform: translateY(-50%);
+    }
+  }
+
+  &.disabled {
+    color: theme-var(--color-100);
+    background-color: theme-var(--color-background-50);
+    animation-name: linkDisappear;
+  }
+}
+
+@media(orientation: landscape) {
+  .navigatorLink {
+    writing-mode: sideways-lr;
+    text-orientation: sideways;
+
+    &.left, &.right {
+      border-bottom-width: var(--spacing-base);
+    }
+  }
+}
+
+@media(orientation: portrait) {
+  .navigatorLink {
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+
+    &.left {
+      border-right-width: var(--spacing-base);
+    }
+
+    &.right {
+      border-left-width: var(--spacing-base);
+    }
+  }
+}

@@ -1,7 +1,7 @@
 import { UiState } from "../../state";
 import { UiSetLoadingAction } from "../../action";
 
-export const uiReducerSetLoading = (
+export const uiSetLoadingReducer = (
   state: UiState,
   action: UiSetLoadingAction,
 ): UiState => ({

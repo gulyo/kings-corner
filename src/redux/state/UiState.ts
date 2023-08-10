@@ -1,9 +1,10 @@
-import { Location } from "react-router-dom";
-import { ImageUrlContainer } from "../../type";
+import { ImageUrlContainer, NavigatorDirection, PathElement } from "../../type";
 
 export interface UiState {
   loading: boolean;
   isLoggedIn: boolean;
   imageUrls: ImageUrlContainer;
-  displayLocation?: Location;
+  navigateTo?: PathElement;
+  navigatorDirection: NavigatorDirection;
+  navigatorLocation?: PathElement;
 }

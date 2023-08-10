@@ -11,7 +11,7 @@ export const checkPasswordThunk = (
   return async (dispatch): Promise<void> => {
     dispatch(uiSetLoadingAction(true));
     try {
-      if (password !== "cica") {
+      if (password !== "kiraly52") {
         toastMessage({
           type: "error",
           message: t`Invalid password`,

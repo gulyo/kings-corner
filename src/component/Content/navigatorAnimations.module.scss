@@ -1,0 +1,62 @@
+@import "/src/style/themes";
+
+@keyframes appearLeft {
+  from {
+    transform: translate(-50%, 0);
+  }
+  to {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes appearRight {
+  from {
+    transform: translate(50%, 0);
+  }
+  to {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes disappearLeft {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(50%, 0);
+  }
+}
+
+@keyframes disappearRight {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(-50%, 0);
+  }
+}
+
+@mixin navigatorAnimation {
+  animation-duration: var(--timing-fast);
+  animation-timing-function: linear;
+}
+
+.appearLeft {
+  @include navigatorAnimation;
+  animation-name: appearLeft;
+}
+
+.appearRight {
+  @include navigatorAnimation;
+  animation-name: appearRight;
+}
+
+.disappearLeft {
+  @include navigatorAnimation;
+  animation-name: disappearLeft;
+}
+
+.disappearRight {
+  @include navigatorAnimation;
+  animation-name: disappearRight;
+}

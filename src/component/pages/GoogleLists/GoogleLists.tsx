@@ -6,9 +6,7 @@ import { Title } from "../../Bubble";
 export const GoogleLists: FC<PropsWithChildren> = () => {
   return (
     <Content>
-      <Title>
-        <h2>{t`Maps`}</h2>
-      </Title>
+      <Title>{t`Maps`}</Title>
     </Content>
   );
 };

@@ -1,23 +1,15 @@
-import React, { FC, PropsWithChildren, useEffect } from "react";
-import { Route, Routes, useLocation } from "react-router-dom";
-import { useSelector } from "react-redux";
+import React, { FC, PropsWithChildren } from "react";
+import { Route, Routes } from "react-router-dom";
 import { GoogleLists, Home } from "../../pages";
-import { translatedPath } from "./translatedPath";
-import { uiDisplayLocationSelector } from "../../../redux/selector";
-import { store, uiSetDisplayLocationAction } from "../../../redux";
+import { translatedPath } from "../translatedPath";
+import { useNavigatorLocation } from "./useNavigatorLocation";
 
 export const PageRouter: FC<PropsWithChildren> = () => {
-  const location = useLocation();
-  const displayLocation = useSelector(uiDisplayLocationSelector);
-
-  useEffect(() => {
-    if (!displayLocation) {
-      store.dispatch(uiSetDisplayLocationAction(location));
-    }
-  }, [location, displayLocation]);
+  // NavigatorLinks will need the current location
+  useNavigatorLocation();
 
   return (
-    <Routes location={displayLocation}>
+    <Routes>
       <Route path={translatedPath.HOME} element={<Home />} />
       <Route path={translatedPath.MAPS} element={<GoogleLists />} />
       <Route path="*" element={<Home />} />

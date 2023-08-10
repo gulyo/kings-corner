@@ -1,5 +1,5 @@
 import { t } from "ttag";
-import { PathElement } from "./PathElement";
+import { PathElement } from "../../type";
 
 export const translatedPath: {
   [path in PathElement]: string;

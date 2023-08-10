@@ -6,9 +6,7 @@ import { Title } from "../../Bubble";
 export const Home: FC<PropsWithChildren> = () => {
   return (
     <Content>
-      <Title>
-        <h3>{t`King's Corner Quarters`}</h3>
-      </Title>
+      <Title>{t`King's Corner Quarters`}</Title>
     </Content>
   );
 };

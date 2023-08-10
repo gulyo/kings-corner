@@ -1,7 +1,7 @@
 import { UiState } from "../../state";
 import { UiSetIsLoggedInAction } from "../../action";
 
-export const uiReducerSetIsLoggedIn = (
+export const uiSetIsLoggedInReducer = (
   state: UiState,
   action: UiSetIsLoggedInAction,
 ): UiState => ({

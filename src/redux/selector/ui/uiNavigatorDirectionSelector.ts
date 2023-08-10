@@ -2,7 +2,7 @@ import { createSelector } from "@reduxjs/toolkit";
 import { uiSelector } from "./uiSelector";
 import { UiState } from "../../state";
 
-export const uiDisplayLocationSelector = createSelector(
+export const uiNavigatorDirectionSelector = createSelector(
   uiSelector,
-  (state: UiState) => state.displayLocation,
+  (state: UiState) => state.navigatorDirection,
 );

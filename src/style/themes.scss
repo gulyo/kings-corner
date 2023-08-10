@@ -12,6 +12,8 @@ html {
   --spacing-big: calc(var(--spacing-base) * 8);
   --spacing-huge: calc(var(--spacing-base) * 16);
 
+  --timing-fast: 150ms;
+
   &.light {
     @include spread-map($theme-map-light);
   }
