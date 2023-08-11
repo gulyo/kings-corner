@@ -1,111 +1,215 @@
+$centerX: 50%;
+$centerY: 50%;
+
+$apartmentX: 49%;
+$apartmentY: 64%;
+
+$heroesX: 68%;
+$heroesY: 10%;
+
+$castleX: 21%;
+$castleY: 85%;
+
+$basilicaX: 39%;
+$basilicaY: 65%;
+
+$zoomOut: 100;
+$zoomIn: 300;
+
+@mixin apartmentLandscape($zoom) {
+  background-position: $apartmentX $apartmentY;
+  background-size: calc(#{$zoom} * 1dvw * var(--kings-image-map-ratio)) auto;
+}
+
+@mixin heroesLandscape($zoom) {
+  background-position: $heroesX $heroesY;
+  background-size: calc(#{$zoom} * 1dvw * var(--kings-image-map-ratio)) auto;
+}
+
+@mixin castleLandscape($zoom) {
+  background-position: $castleX $castleY;
+  background-size: calc(#{$zoom} * 1dvw * var(--kings-image-map-ratio)) auto;
+}
+
+@mixin basilicaLandscape($zoom) {
+  background-position: $basilicaX $basilicaY;
+  background-size: calc(#{$zoom} * 1dvw * var(--kings-image-map-ratio)) auto;
+}
+
+@mixin overviewLandscape($zoom) {
+  background-position: $apartmentX $apartmentY;
+  background-size: calc(#{$zoom} * 1dvw * var(--kings-image-map-ratio)) auto;
+}
+
+
+@mixin apartmentPortrait($zoom) {
+  background-position: $apartmentX $apartmentY;
+  background-size: auto calc(#{$zoom} * 1dvh);
+}
+
+@mixin heroesPortrait($zoom) {
+  background-position: $heroesX $heroesY;
+  background-size: auto calc(#{$zoom} * 1dvh);
+}
+
+@mixin castlePortrait($zoom) {
+  background-position: $castleX $castleY;
+  background-size: auto calc(#{$zoom} * 1dvh);
+}
+
+@mixin basilicaPortrait($zoom) {
+  background-position: $basilicaX $basilicaY;
+  background-size: auto calc(#{$zoom} * 1dvh);
+}
+
+@mixin overviewPortrait($zoom) {
+  background-position: $apartmentX $apartmentY;
+  background-size: auto calc(#{$zoom} * 1dvh);
+}
+
+
 @keyframes mapLandscape {
   from {
-    opacity: 1;
-    background-position: 46% 50%;
-    background-size: calc(300vw * var(--kings-image-map-ratio)) auto;
-  }
-  3% {
-    background-position: 46% 50%;
-    background-size: calc(300vw * var(--kings-image-map-ratio)) auto;
-  }
-  9% {
-    background-position: 40% 50%;
-    background-size: calc(200vw * var(--kings-image-map-ratio)) auto;
+    opacity: 0;
+    @include apartmentLandscape($zoomIn);
   }
   15% {
-    background-position: 30% 55%;
-    background-size: calc(225vw * var(--kings-image-map-ratio)) auto;
+    opacity: 0;
+    @include apartmentLandscape($zoomIn);
   }
-  22% {
-    background-position: 25% 15%;
-    background-size: calc(200vw * var(--kings-image-map-ratio)) auto;
+  16% {
+    opacity: 1;
+    @include apartmentLandscape($zoomIn);
+  }
+  18% {
+    opacity: 1;
+    @include apartmentLandscape($zoomIn);
+  }
+  23% {
+    @include apartmentLandscape($zoomOut);
   }
   25% {
-    background-position: 25% 15%;
-    background-size: calc(200vw * var(--kings-image-map-ratio)) auto;
+    @include heroesLandscape($zoomOut);
   }
-  33% {
-    background-position: 35% 85%;
-    background-size: calc(175vw * var(--kings-image-map-ratio)) auto;
+  30% {
+    @include heroesLandscape($zoomIn);
   }
-  35% {
-    background-position: 35% 85%;
-    background-size: calc(175vw * var(--kings-image-map-ratio)) auto;
+  32% {
+    @include heroesLandscape($zoomIn);
   }
-  40% {
+  37% {
+    @include heroesLandscape($zoomOut);
+  }
+  39% {
+    @include castleLandscape($zoomOut);
+  }
+  44% {
+    @include castleLandscape($zoomIn);
+  }
+  46% {
+    @include castleLandscape($zoomIn);
+  }
+  51% {
+    @include castleLandscape($zoomOut);
+  }
+  53% {
+    @include basilicaLandscape($zoomOut);
+  }
+  58% {
+    @include basilicaLandscape($zoomIn);
+  }
+  60% {
+    @include basilicaLandscape($zoomIn);
+  }
+  64% {
+    @include basilicaLandscape($zoomOut);
+  }
+  64.5% {
+    @include apartmentLandscape($zoomOut);
+  }
+  70% {
     opacity: 1;
-    background-position: 46% 50%;
-    background-size: calc(300vw * var(--kings-image-map-ratio)) auto;
+    @include apartmentLandscape($zoomIn);
   }
-  42% {
+  71% {
     opacity: 0;
-    background-position: 46% 50%;
-    background-size: calc(300vw * var(--kings-image-map-ratio)) auto;
-  }
-  98% {
-    opacity: 0;
-    background-position: 46% 50%;
-    background-size: calc(300vw * var(--kings-image-map-ratio)) auto;
+    @include apartmentLandscape($zoomIn);
   }
   to {
-    opacity: 1;
-    background-position: 46% 50%;
-    background-size: calc(300vw * var(--kings-image-map-ratio)) auto;
+    opacity: 0;
+    @include apartmentLandscape($zoomIn);
   }
 }
 
 @keyframes mapPortrait {
   from {
-    opacity: 1;
-    background-position: 46% 50%;
-    background-size: auto calc(300vh * var(--kings-image-map-ratio));
-  }
-  3% {
-    background-position: 46% 50%;
-    background-size: auto calc(300vh * var(--kings-image-map-ratio));
-  }
-  9% {
-    background-position: 40% 50%;
-    background-size: auto calc(200vh * var(--kings-image-map-ratio));
+    opacity: 0;
+    @include apartmentPortrait($zoomIn);
   }
   15% {
-    background-position: 30% 55%;
-    background-size: auto calc(225vh * var(--kings-image-map-ratio));
+    opacity: 0;
+    @include apartmentPortrait($zoomIn);
   }
-  22% {
-    background-position: 25% 15%;
-    background-size: auto calc(200vh * var(--kings-image-map-ratio));
+  16% {
+    opacity: 1;
+    @include apartmentPortrait($zoomIn);
+  }
+  18% {
+    opacity: 1;
+    @include apartmentPortrait($zoomIn);
+  }
+  23% {
+    @include apartmentPortrait($zoomOut);
   }
   25% {
-    background-position: 25% 15%;
-    background-size: auto calc(200vh * var(--kings-image-map-ratio));
+    @include heroesPortrait($zoomOut);
   }
-  33% {
-    background-position: 35% 85%;
-    background-size: auto calc(175vh * var(--kings-image-map-ratio));
+  30% {
+    @include heroesPortrait($zoomIn);
   }
-  35% {
-    background-position: 35% 85%;
-    background-size: auto calc(175vh * var(--kings-image-map-ratio));
+  32% {
+    @include heroesPortrait($zoomIn);
   }
-  40% {
+  37% {
+    @include heroesPortrait($zoomOut);
+  }
+  39% {
+    @include castlePortrait($zoomOut);
+  }
+  44% {
+    @include castlePortrait($zoomIn);
+  }
+  46% {
+    @include castlePortrait($zoomIn);
+  }
+  51% {
+    @include castlePortrait($zoomOut);
+  }
+  53% {
+    @include basilicaPortrait($zoomOut);
+  }
+  58% {
+    @include basilicaPortrait($zoomIn);
+  }
+  60% {
+    @include basilicaPortrait($zoomIn);
+  }
+  64% {
+    @include basilicaPortrait($zoomOut);
+  }
+  64.5% {
+    @include apartmentPortrait($zoomOut);
+  }
+  70% {
     opacity: 1;
-    background-position: 46% 50%;
-    background-size: auto calc(300vh * var(--kings-image-map-ratio));
+    @include apartmentPortrait($zoomIn);
   }
-  42% {
+  71% {
     opacity: 0;
-    background-position: 46% 50%;
-    background-size: auto calc(300vh * var(--kings-image-map-ratio));
-  }
-  98% {
-    opacity: 0;
-    background-position: 46% 50%;
-    background-size: auto calc(300vh * var(--kings-image-map-ratio));
+    @include apartmentPortrait($zoomIn);
   }
   to {
-    opacity: 1;
-    background-position: 46% 50%;
-    background-size: auto calc(300vh * var(--kings-image-map-ratio));
+    opacity: 0;
+    @include apartmentPortrait($zoomIn);
   }
 }

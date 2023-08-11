@@ -4,16 +4,7 @@
 @import "keyframes.party";
 @import "keyframes.view";
 
-$animation-duration: 30s;
-
-//@mixin metaCommon {
-//  content: '';
-//  position: absolute;
-//  display: block;
-//  height: 100%;
-//  width: 100%;
-//  z-index: 8;
-//}
+$animation-duration: 25s;
 
 .anchor {
   position: fixed;
@@ -41,7 +32,8 @@ $animation-duration: 30s;
   background-repeat: no-repeat;
 
   animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
+  animation-timing-function: linear;
+  animation-duration: $animation-duration;
   transform-origin: 50% 50%;
 
   margin: 0;
@@ -49,51 +41,34 @@ $animation-duration: 30s;
 
   opacity: 0;
 
-  //&:before {
-  //  @include metaCommon;
-  //  background: linear-gradient(to bottom, theme-var(--color-background), transparent var(--spacing-medium), transparent calc(100% - var(--spacing-base)), theme-var(--color-background));
-  //}
-  //
-  //&:after {
-  //  @include metaCommon;
-  //  background: linear-gradient(to right, theme-var(--color-background), transparent var(--spacing-medium), transparent calc(100% - var(--spacing-base)), theme-var(--color-background));
-  //}
 }
 
 @media (orientation: landscape) {
   .imageMap {
     animation-name: mapLandscape;
-    animation-duration: $animation-duration;
   }
   .imageParty {
     animation-name: partyLandscape;
-    animation-duration: $animation-duration;
   }
   .imageCulture {
     animation-name: cultureLandscape;
-    animation-duration: $animation-duration;
   }
   .imageView {
     animation-name: viewLandscape;
-    animation-duration: $animation-duration;
   }
 }
 
 @media (orientation: portrait) {
   .imageMap {
     animation-name: mapPortrait;
-    animation-duration: $animation-duration;
   }
   .imageParty {
     animation-name: partyPortrait;
-    animation-duration: $animation-duration;
   }
   .imageCulture {
     animation-name: culturePortrait;
-    animation-duration: $animation-duration;
   }
   .imageView {
     animation-name: viewPortrait;
-    animation-duration: $animation-duration;
   }
 }

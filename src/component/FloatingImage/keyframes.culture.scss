@@ -1,49 +1,55 @@
 @keyframes cultureLandscape {
   from {
-    opacity: 0;
-  }
-  40% {
-    opacity: 0;
+    opacity: 1;
     background-position: 25% 50%;
-    background-size: calc(200vw * var(--kings-image-culture-ratio)) auto;
+    background-size: calc(200dvw * var(--kings-image-culture-ratio)) auto;
   }
-  42% {
+  15% {
     opacity: 1;
+    background-position: 50% 50%;
+    background-size: calc(100dvw * var(--kings-image-culture-ratio)) auto;
   }
-  60% {
-    opacity: 1;
-  }
-  62% {
+  16% {
     opacity: 0;
     background-position: 50% 50%;
-    background-size: calc(100vw * var(--kings-image-culture-ratio)) auto;
+    background-size: calc(100dvw * var(--kings-image-culture-ratio)) auto;
+  }
+  99% {
+    opacity: 0;
+    background-position: 25% 50%;
+    background-size: calc(200dvw * var(--kings-image-culture-ratio)) auto;
   }
   to {
-    opacity: 0;
+    opacity: 1;
+    background-position: 25% 50%;
+    background-size: calc(200dvw * var(--kings-image-culture-ratio)) auto;
   }
 }
 
 @keyframes culturePortrait {
   from {
-    opacity: 0;
-  }
-  40% {
-    opacity: 0;
-  }
-  42% {
     opacity: 1;
     background-position: 25% 50%;
-    background-size: auto calc(200vh * var(--kings-image-culture-ratio));
+    background-size: auto 200dvh;
   }
-  60% {
+  15% {
     opacity: 1;
+    background-position: 50% 50%;
+    background-size: auto 100dvh;
   }
-  62% {
+  16% {
     opacity: 0;
     background-position: 50% 50%;
-    background-size: auto calc(100vh * var(--kings-image-culture-ratio));
+    background-size: auto 100dvh;
+  }
+  99% {
+    opacity: 0;
+    background-position: 25% 50%;
+    background-size: auto 200dvh;
   }
   to {
-    opacity: 0;
+    opacity: 1;
+    background-position: 25% 50%;
+    background-size: auto 200dvh;
   }
 }
