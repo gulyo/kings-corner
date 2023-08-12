@@ -1,12 +1,17 @@
 .anchor {
-  position: absolute;
-  display: flex;
+  position: fixed;
+  height: 100dvh;
   width: 100dvw;
-  transform: translate(-50%, 0);
-  left: 50%;
+  left: 0;
+  top: 0;
+  overflow-x: hidden;
 }
 
 .container {
+  position: absolute;
   display: flex;
-  width: 100%;
+  width: calc(100dvw - calc(2 * var(--spacing-huge)));
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding: 0 var(--spacing-huge);
 }
