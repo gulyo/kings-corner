@@ -4,17 +4,17 @@
     background-position: 25% 50%;
     background-size: calc(200dvw * var(--kings-image-culture-ratio)) auto;
   }
-  15% {
+  25% {
     opacity: 1;
     background-position: 50% 50%;
     background-size: calc(100dvw * var(--kings-image-culture-ratio)) auto;
   }
-  16% {
+  27% {
     opacity: 0;
     background-position: 50% 50%;
     background-size: calc(100dvw * var(--kings-image-culture-ratio)) auto;
   }
-  99% {
+  98% {
     opacity: 0;
     background-position: 25% 50%;
     background-size: calc(200dvw * var(--kings-image-culture-ratio)) auto;
@@ -32,12 +32,12 @@
     background-position: 25% 50%;
     background-size: auto 200dvh;
   }
-  15% {
+  25% {
     opacity: 1;
     background-position: 50% 50%;
     background-size: auto 100dvh;
   }
-  16% {
+  27% {
     opacity: 0;
     background-position: 50% 50%;
     background-size: auto 100dvh;

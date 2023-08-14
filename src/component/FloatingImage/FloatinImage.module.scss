@@ -1,10 +1,10 @@
 @import "/src/style/themes";
-@import "keyframes.map";
 @import "keyframes.culture";
 @import "keyframes.party";
 @import "keyframes.view";
+@import "keyframes.heroes";
 
-$animation-duration: 40s;
+$animation-duration: 20s;
 
 .anchor {
   position: fixed;
@@ -43,10 +43,24 @@ $animation-duration: 40s;
 
 }
 
+.imageParty {
+  background-image: var(--kings-image-party-url);
+}
+
+.imageCulture {
+  background-image: var(--kings-image-culture-url);
+}
+
+.imageView {
+  background-image: var(--kings-image-view-url);
+}
+
+.imageHeroes {
+  background-image: var(--kings-image-heroes-url);
+}
+
+
 @media (orientation: landscape) {
-  .imageMap {
-    animation-name: mapLandscape;
-  }
   .imageParty {
     animation-name: partyLandscape;
   }
@@ -56,12 +70,12 @@ $animation-duration: 40s;
   .imageView {
     animation-name: viewLandscape;
   }
+  .imageHeroes {
+    animation-name: heroesLandscape;
+  }
 }
 
 @media (orientation: portrait) {
-  .imageMap {
-    animation-name: mapPortrait;
-  }
   .imageParty {
     animation-name: partyPortrait;
   }
@@ -70,5 +84,8 @@ $animation-duration: 40s;
   }
   .imageView {
     animation-name: viewPortrait;
+  }
+  .imageHeroes {
+    animation-name: heroesPortrait;
   }
 }

@@ -1,53 +1,18 @@
-import React, { CSSProperties, FC, PropsWithChildren } from "react";
-
-import { useSelector } from "react-redux";
+import React, { FC, PropsWithChildren } from "react";
 import styles from "./FloatinImage.module.scss";
-import { uiImageUrlsSelector } from "../../redux/selector";
-import { ImageName } from "../../type";
 
 export const FloatingImage: FC<PropsWithChildren> = () => {
-  const {
-    [ImageName.MAP]: urlMap,
-    [ImageName.CULTURE]: urlCulture,
-    [ImageName.PARTY]: urlParty,
-    [ImageName.VIEW]: urlView,
-  } = useSelector(uiImageUrlsSelector);
-
-  const imageStyles: { class: string; style: CSSProperties }[] = [
-    {
-      class: styles.imageMap,
-      style: {
-        backgroundImage: `url("${urlMap}")`,
-      },
-    },
-    {
-      class: styles.imageView,
-      style: {
-        backgroundImage: `url("${urlView}")`,
-      },
-    },
-    {
-      class: styles.imageCulture,
-      style: {
-        backgroundImage: `url("${urlCulture}")`,
-      },
-    },
-    {
-      class: styles.imageParty,
-      style: {
-        backgroundImage: `url("${urlParty}")`,
-      },
-    },
+  const imageStyles: string[] = [
+    styles.imageView,
+    styles.imageCulture,
+    styles.imageParty,
+    styles.imageHeroes,
   ];
 
   return (
     <div className={styles.anchor}>
       {imageStyles.map((imageStyle) => (
-        <div
-          key={imageStyle.class}
-          className={`${styles.image} ${imageStyle.class}`}
-          style={imageStyle.style}
-        />
+        <div key={imageStyle} className={`${styles.image} ${imageStyle}`} />
       ))}
     </div>
   );

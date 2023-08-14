@@ -1,0 +1,57 @@
+@keyframes heroesLandscape {
+  from {
+    opacity: 0;
+    background-position: 25% 50%;
+    background-size: calc(100dvw * var(--kings-image-culture-ratio)) auto;
+  }
+  25% {
+    opacity: 0;
+    background-position: 25% 50%;
+    background-size: calc(100dvw * var(--kings-image-culture-ratio)) auto;
+  }
+  27% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  52% {
+    opacity: 0;
+    background-position: 75% 50%;
+    background-size: calc(100dvw * var(--kings-image-culture-ratio)) auto;
+  }
+  to {
+    opacity: 0;
+    background-position: 25% 50%;
+    background-size: calc(100dvw * var(--kings-image-culture-ratio)) auto;
+  }
+}
+
+@keyframes heroesPortrait {
+  from {
+    opacity: 0;
+    background-position: 25% 50%;
+    background-size: auto 100dvh;
+  }
+  25% {
+    opacity: 0;
+    background-position: 25% 50%;
+    background-size: auto 100dvh;
+  }
+  27% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  52% {
+    opacity: 0;
+    background-position: 75% 50%;
+    background-size: auto 100dvh;
+  }
+  to {
+    opacity: 0;
+    background-position: 25% 50%;
+    background-size: auto 100dvh;
+  }
+}

@@ -3,4 +3,8 @@ export enum ImageName {
   PARTY = "party",
   CULTURE = "culture",
   VIEW = "view",
+  HEROES = "heroes",
+  PARLIAMENT = "parliament",
+  APARTMENT = "apartment",
+  NEIGHBOURHOOD = "neighbourhood",
 }

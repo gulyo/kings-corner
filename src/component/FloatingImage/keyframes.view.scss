@@ -2,22 +2,22 @@
   from {
     opacity: 0;
   }
-  70% {
+  50% {
     opacity: 0;
     background-position: 50% 50%;
     background-size: calc(100dvw * var(--kings-image-view-ratio)) auto;
     filter: grayscale(.6);
   }
-  71% {
+  52% {
     opacity: 1;
   }
-  85% {
+  75% {
     opacity: 1;
     background-position: 40% 40%;
     background-size: calc(150dvw * var(--kings-image-view-ratio)) auto;
     filter: grayscale(0);
   }
-  86% {
+  77% {
     opacity: 0;
   }
   to {
@@ -29,22 +29,22 @@
   from {
     opacity: 0;
   }
-  70% {
+  50% {
     opacity: 0;
     background-position: 50% 50%;
     background-size: auto 100dvh;
     filter: grayscale(.6);
   }
-  71% {
+  52% {
     opacity: 1;
   }
-  85% {
+  75% {
     opacity: 1;
     background-position: 40% 40%;
     background-size: auto 150dvh;
     filter: grayscale(0);
   }
-  86% {
+  77% {
     opacity: 0;
   }
   to {

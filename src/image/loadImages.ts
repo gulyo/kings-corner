@@ -2,10 +2,14 @@ import resourceParty from "./resource/party.jpg";
 import resourceCulture from "./resource/culture.jpg";
 import resourceMap from "./resource/map.jpg";
 import resourceView from "./resource/view.jpg";
+import resourceHeroes from "./resource/heroes.jpg";
+import resourceParliament from "./resource/parliament.jpg";
+import resourceApartment from "./resource/apartment.jpg";
+import resourceNeighbourhood from "./resource/neighbourhood.jpg";
 import { comLogger } from "../util";
 import { store, uiSetImageUrlsAction } from "../redux";
 import { ImageName, ImageUrlContainer } from "../type";
-import { imageNameCssVarRatioMap } from "./imageNameCssVarRatioMap";
+import { imageNameCssVarMap } from "./imageNameCssVarMap";
 
 export const loadImages = async (): Promise<void> => {
   return new Promise((resolve) => {
@@ -17,6 +21,10 @@ export const loadImages = async (): Promise<void> => {
       [ImageName.CULTURE]: resourceCulture,
       [ImageName.PARTY]: resourceParty,
       [ImageName.VIEW]: resourceView,
+      [ImageName.HEROES]: resourceHeroes,
+      [ImageName.PARLIAMENT]: resourceParliament,
+      [ImageName.APARTMENT]: resourceApartment,
+      [ImageName.NEIGHBOURHOOD]: resourceNeighbourhood,
     };
     const urls = Object.entries(resources);
 
@@ -38,9 +46,10 @@ export const loadImages = async (): Promise<void> => {
       image.onload = () => {
         increase();
         htmlStyle.setProperty(
-          imageNameCssVarRatioMap[name],
+          imageNameCssVarMap[name].ratio,
           (image.width / image.height).toString(10),
         );
+        htmlStyle.setProperty(imageNameCssVarMap[name].url, `url("${url}")`);
       };
       image.onerror = () => {
         increase();
