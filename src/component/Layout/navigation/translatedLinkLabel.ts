@@ -10,4 +10,10 @@ export const translatedLinkLabel: {
   get MAPS(): string {
     return t`Maps`;
   },
+  get TOUR(): string {
+    return t`Tour`;
+  },
+  get DICTIONARY(): string {
+    return t`Phrases`;
+  },
 };

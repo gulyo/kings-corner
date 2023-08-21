@@ -1,0 +1,19 @@
+.container {
+  position: fixed;
+  display: inline-flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+
+  top: 50dvh;
+  transform: translate(0, -50%);
+
+  width: 100dvw;
+
+  pointer-events: none;
+  background: transparent;
+}
+
+.spacer {
+  display: flex;
+  flex-grow: 1;
+}

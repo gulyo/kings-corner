@@ -19,7 +19,10 @@
 }
 
 .navigatorLink {
-  position: fixed;
+  display: flex;
+  flex-grow: 0;
+  flex-shrink: 0;
+
   cursor: pointer;
   pointer-events: all;
 
@@ -28,10 +31,12 @@
   background-color: theme-var(--color-background-semi-transparent);
   color: theme-var(--color-main);
 
-  top: 50dvh;
-  transform: translate(0, -50%);
   text-decoration: none;
+  justify-content: center;
   padding: var(--spacing-medium);
+
+  writing-mode: vertical-lr;
+  text-orientation: upright;
 
   border-color: theme-var(--color-main);
   border-style: solid;
@@ -43,18 +48,12 @@
   animation-timing-function: linear;
   animation-name: linkAppear;
 
-  &:visited {
-    color: theme-var(--color-100);
-  }
-
   &:before {
     position: absolute;
     top: 50%;
   }
 
   &.left {
-    left: 0;
-
     &:before {
       content: "\27A4";
       left: 0;
@@ -63,8 +62,6 @@
   }
 
   &.right {
-    right: 0;
-
     &:before {
       content: "\27A4";
       right: 0;
@@ -81,8 +78,6 @@
 
 @media(orientation: landscape) {
   .navigatorLink {
-    writing-mode: sideways-lr;
-    text-orientation: sideways;
 
     &.left, &.right {
       border-bottom-width: var(--spacing-base);
@@ -92,9 +87,6 @@
 
 @media(orientation: portrait) {
   .navigatorLink {
-    writing-mode: vertical-lr;
-    text-orientation: upright;
-
     &.left {
       border-right-width: var(--spacing-base);
     }

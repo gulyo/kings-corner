@@ -1,13 +1,13 @@
-@keyframes heroesLandscape {
+@keyframes heroesFloatingLandscape {
   from {
     opacity: 0;
-    background-position: 25% 50%;
-    background-size: calc(100dvw * var(--kings-image-culture-ratio)) auto;
+    background-position: 25% 75%;
+    background-size: 150dvw auto;
   }
   25% {
     opacity: 0;
-    background-position: 25% 50%;
-    background-size: calc(100dvw * var(--kings-image-culture-ratio)) auto;
+    background-position: 25% 75%;
+    background-size: 150dvw auto;
   }
   27% {
     opacity: 1;
@@ -17,17 +17,17 @@
   }
   52% {
     opacity: 0;
-    background-position: 75% 50%;
-    background-size: calc(100dvw * var(--kings-image-culture-ratio)) auto;
+    background-position: 75% 75%;
+    background-size: 150dvw auto;
   }
   to {
     opacity: 0;
-    background-position: 25% 50%;
-    background-size: calc(100dvw * var(--kings-image-culture-ratio)) auto;
+    background-position: 25% 75%;
+    background-size: 150dvw auto;
   }
 }
 
-@keyframes heroesPortrait {
+@keyframes heroesFloatingPortrait {
   from {
     opacity: 0;
     background-position: 25% 50%;

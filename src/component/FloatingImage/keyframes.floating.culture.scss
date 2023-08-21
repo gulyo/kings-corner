@@ -1,32 +1,32 @@
-@keyframes cultureLandscape {
+@keyframes cultureFloatingLandscape {
   from {
     opacity: 1;
     background-position: 25% 50%;
-    background-size: calc(200dvw * var(--kings-image-culture-ratio)) auto;
+    background-size: 200dvw auto;
   }
   25% {
     opacity: 1;
     background-position: 50% 50%;
-    background-size: calc(100dvw * var(--kings-image-culture-ratio)) auto;
+    background-size: 100dvw auto;
   }
   27% {
     opacity: 0;
     background-position: 50% 50%;
-    background-size: calc(100dvw * var(--kings-image-culture-ratio)) auto;
+    background-size: 100dvw auto;
   }
   98% {
     opacity: 0;
     background-position: 25% 50%;
-    background-size: calc(200dvw * var(--kings-image-culture-ratio)) auto;
+    background-size: 200dvw auto;
   }
   to {
     opacity: 1;
     background-position: 25% 50%;
-    background-size: calc(200dvw * var(--kings-image-culture-ratio)) auto;
+    background-size: 200dvw auto;
   }
 }
 
-@keyframes culturePortrait {
+@keyframes cultureFloatingPortrait {
   from {
     opacity: 1;
     background-position: 25% 50%;

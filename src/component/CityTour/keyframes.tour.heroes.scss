@@ -1,0 +1,55 @@
+@keyframes heroesTourLandscape {
+  from {
+    opacity: 0;
+    top: -100dvh;
+  }
+  5% {
+    opacity: 1;
+    top: -100dvh;
+  }
+  20% {
+    top: 0;
+  }
+  25% {
+    top: 0;
+  }
+  40% {
+    top: 100dvh;
+    opacity: 1;
+  }
+  40.001% {
+    opacity: 0;
+  }
+  to {
+    opacity: 0;
+    top: -100dvh;
+  }
+}
+
+@keyframes heroesTourPortrait {
+  from {
+    opacity: 0;
+    left: -100dvw;
+  }
+  5% {
+    opacity: 1;
+    left: -100dvw;
+  }
+  20% {
+    left: 0;
+  }
+  25% {
+    left: 0;
+  }
+  40% {
+    left: 100dvw;
+    opacity: 1;
+  }
+  40.001% {
+    opacity: 0;
+  }
+  to {
+    opacity: 0;
+    left: -100dvw;
+  }
+}

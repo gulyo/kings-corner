@@ -10,4 +10,10 @@ export const translatedPath: {
   get MAPS(): string {
     return t`/maps`;
   },
+  get TOUR(): string {
+    return t`/tour`;
+  },
+  get DICTIONARY(): string {
+    return t`/dictionary`;
+  },
 };

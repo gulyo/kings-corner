@@ -4,7 +4,7 @@ import { Content } from "../../Content";
 import { Bubble, Title } from "../../Bubble";
 import { mapUrls } from "./mapUrls";
 
-export const GoogleLists: FC<PropsWithChildren> = () => {
+export const Maps: FC<PropsWithChildren> = () => {
   return (
     <Content>
       <Title>{t`Maps`}</Title>

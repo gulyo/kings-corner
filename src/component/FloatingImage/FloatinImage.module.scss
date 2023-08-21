@@ -1,8 +1,8 @@
 @import "/src/style/themes";
-@import "keyframes.culture";
-@import "keyframes.party";
-@import "keyframes.view";
-@import "keyframes.heroes";
+@import "keyframes.floating.culture";
+@import "keyframes.floating.party";
+@import "keyframes.floating.view";
+@import "keyframes.floating.heroes";
 
 $animation-duration: 20s;
 
@@ -45,47 +45,22 @@ $animation-duration: 20s;
 
 .imageParty {
   background-image: var(--kings-image-party-url);
+  animation-name: var(--kings-floating-party-animation-name);
 }
 
 .imageCulture {
   background-image: var(--kings-image-culture-url);
+  animation-name: var(--kings-floating-culture-animation-name);
 }
 
 .imageView {
   background-image: var(--kings-image-view-url);
+  animation-name: var(--kings-floating-view-animation-name);
 }
 
 .imageHeroes {
   background-image: var(--kings-image-heroes-url);
+  animation-name: var(--kings-floating-heroes-animation-name);
 }
 
 
-@media (orientation: landscape) {
-  .imageParty {
-    animation-name: partyLandscape;
-  }
-  .imageCulture {
-    animation-name: cultureLandscape;
-  }
-  .imageView {
-    animation-name: viewLandscape;
-  }
-  .imageHeroes {
-    animation-name: heroesLandscape;
-  }
-}
-
-@media (orientation: portrait) {
-  .imageParty {
-    animation-name: partyPortrait;
-  }
-  .imageCulture {
-    animation-name: culturePortrait;
-  }
-  .imageView {
-    animation-name: viewPortrait;
-  }
-  .imageHeroes {
-    animation-name: heroesPortrait;
-  }
-}

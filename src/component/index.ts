@@ -1,1 +1,1 @@
-export * from "./FloatingImage";
+export * from "./Layout";

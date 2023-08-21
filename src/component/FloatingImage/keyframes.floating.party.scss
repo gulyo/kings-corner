@@ -1,11 +1,11 @@
-@keyframes partyLandscape {
+@keyframes partyFloatingLandscape {
   from {
     opacity: 0;
   }
   75% {
     opacity: 0;
     background-position: 60% 40%;
-    background-size: calc(120dvw * var(--kings-image-party-ratio)) auto;
+    background-size: 120dvw auto;
     filter: saturate(1);
   }
   77% {
@@ -16,7 +16,7 @@
   }
   90% {
     background-position: 35% 60%;
-    background-size: calc(110dvw * var(--kings-image-party-ratio)) auto;
+    background-size: 110dvw auto;
     filter: saturate(1.2);
   }
   98% {
@@ -25,12 +25,12 @@
   to {
     opacity: 0;
     background-position: 50% 50%;
-    background-size: calc(100dvw * var(--kings-image-party-ratio)) auto;
+    background-size: 100dvw auto;
     filter: saturate(.6);
   }
 }
 
-@keyframes partyPortrait {
+@keyframes partyFloatingPortrait {
   from {
     opacity: 0;
   }

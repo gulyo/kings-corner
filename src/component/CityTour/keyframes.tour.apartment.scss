@@ -1,0 +1,56 @@
+@keyframes apartmentTourLandscape {
+  from {
+    opacity: 1;
+    top: 0;
+  }
+  5% {
+    top: 0;
+  }
+  20% {
+    opacity: 1;
+    top: 100dvh;
+  }
+  20.001% {
+    opacity: 0;
+  }
+  84.999% {
+    opacity: 0;
+  }
+  85% {
+    opacity: 1;
+    top: -100dvh;
+  }
+  to {
+    opacity: 1;
+    top: 0;
+  }
+}
+
+@keyframes apartmentTourPortrait {
+  from {
+    opacity: 1;
+    left: 0;
+  }
+  5% {
+    left: 0;
+  }
+  20% {
+    opacity: 1;
+    left: 100dvw;
+  }
+  20.001% {
+    opacity: 0;
+  }
+  84.999% {
+    opacity: 0;
+  }
+  85% {
+    opacity: 1;
+    left: -100dvw;
+  }
+  to {
+    opacity: 1;
+    left: 0;
+  }
+
+}

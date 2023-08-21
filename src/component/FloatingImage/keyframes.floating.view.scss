@@ -1,11 +1,11 @@
-@keyframes viewLandscape {
+@keyframes viewFloatingLandscape {
   from {
     opacity: 0;
   }
   50% {
     opacity: 0;
     background-position: 50% 50%;
-    background-size: calc(100dvw * var(--kings-image-view-ratio)) auto;
+    background-size: 100dvw auto;
     filter: grayscale(.6);
   }
   52% {
@@ -14,7 +14,7 @@
   75% {
     opacity: 1;
     background-position: 40% 40%;
-    background-size: calc(150dvw * var(--kings-image-view-ratio)) auto;
+    background-size: 150dvw auto;
     filter: grayscale(0);
   }
   77% {
@@ -25,7 +25,7 @@
   }
 }
 
-@keyframes viewPortrait {
+@keyframes viewFloatingPortrait {
   from {
     opacity: 0;
   }

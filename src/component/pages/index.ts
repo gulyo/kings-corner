@@ -1,2 +1,4 @@
 export * from "./Home";
-export * from "./GoogleLists";
+export * from "./Maps";
+export * from "./Tour";
+export * from "./Dictionary";

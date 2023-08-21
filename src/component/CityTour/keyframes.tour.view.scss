@@ -1,0 +1,55 @@
+@keyframes viewTourLandscape {
+  from {
+    opacity: 0;
+    top: -100dvh;
+  }
+  25% {
+    opacity: 1;
+    top: -100dvh;
+  }
+  40% {
+    top: 0;
+  }
+  45% {
+    top: 0;
+  }
+  60% {
+    top: 100dvh;
+    opacity: 1;
+  }
+  60.001% {
+    opacity: 0;
+  }
+  to {
+    opacity: 0;
+    top: -100dvh;
+  }
+}
+
+@keyframes viewTourPortrait {
+  from {
+    opacity: 0;
+    left: -100dvw;
+  }
+  25% {
+    opacity: 1;
+    left: -100dvw;
+  }
+  40% {
+    left: 0;
+  }
+  45% {
+    left: 0;
+  }
+  60% {
+    left: 100dvw;
+    opacity: 1;
+  }
+  60.001% {
+    opacity: 0;
+  }
+  to {
+    opacity: 0;
+    left: -100dvw;
+  }
+}

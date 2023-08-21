@@ -3,7 +3,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import { t } from "ttag";
 import { toastMessage } from "./util";
-import { Layout } from "./component/Layout";
+import { Layout } from "./component";
 
 export const App: FC<PropsWithChildren> = () => {
   useEffect(() => {

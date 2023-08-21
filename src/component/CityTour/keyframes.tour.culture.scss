@@ -1,0 +1,41 @@
+@keyframes cultureTourLandscape {
+  from {
+    opacity: 0;
+    top: -100dvh;
+  }
+  65% {
+    opacity: 1;
+    top: -100dvh;
+  }
+  80% {
+    top: 0;
+  }
+  85% {
+    top: 0;
+  }
+  to {
+    top: 100dvh;
+    opacity: 1;
+  }
+}
+
+@keyframes cultureTourPortrait {
+  from {
+    opacity: 0;
+    left: -100dvw;
+  }
+  65% {
+    opacity: 1;
+    left: -100dvw;
+  }
+  80% {
+    left: 0;
+  }
+  85% {
+    left: 0;
+  }
+  to {
+    left: 100dvw;
+    opacity: 1;
+  }
+}

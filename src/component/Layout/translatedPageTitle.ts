@@ -10,4 +10,10 @@ export const translatedPageTitle: {
   get MAPS(): string {
     return t`Maps`;
   },
+  get TOUR(): string {
+    return t`City tour`;
+  },
+  get DICTIONARY(): string {
+    return t`Dictionary`;
+  },
 };

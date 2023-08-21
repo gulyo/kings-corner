@@ -1,6 +1,6 @@
 import React, { FC, PropsWithChildren } from "react";
 import { Route, Routes } from "react-router-dom";
-import { GoogleLists, Home } from "../../pages";
+import { Dictionary, Home, Maps, Tour } from "../../pages";
 import { translatedPath } from "../translatedPath";
 import { useNavigatorLocation } from "./useNavigatorLocation";
 
@@ -11,7 +11,9 @@ export const PageRouter: FC<PropsWithChildren> = () => {
   return (
     <Routes>
       <Route path={translatedPath.HOME} element={<Home />} />
-      <Route path={translatedPath.MAPS} element={<GoogleLists />} />
+      <Route path={translatedPath.MAPS} element={<Maps />} />
+      <Route path={translatedPath.TOUR} element={<Tour />} />
+      <Route path={translatedPath.DICTIONARY} element={<Dictionary />} />
       <Route path="*" element={<Home />} />
     </Routes>
   );

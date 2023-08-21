@@ -1,0 +1,137 @@
+@import "/src/style/themes";
+@import "./keyframes.tour.apartment";
+@import "./keyframes.tour.culture";
+@import "./keyframes.tour.heroes";
+@import "./keyframes.tour.parliament";
+@import "./keyframes.tour.view";
+
+$animation-duration: 25s;
+
+@mixin imageBefore {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: var(--spacing-medium);
+  background-color: theme-var(--color-background-semi-transparent);
+  color: theme-var(--color-main);
+}
+
+.anchor {
+  position: fixed;
+  overflow: visible;
+  display: block;
+  top: 0;
+  left: 0;
+
+  margin: 0;
+  padding: 0;
+
+  z-index: -1;
+}
+
+.image {
+  display: block;
+  position: absolute;
+
+  overflow: hidden;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-duration: $animation-duration;
+  transform-origin: 50% 50%;
+  margin: 0;
+  padding: 0;
+}
+
+.photo {
+  opacity: 0;
+  background-size: cover;
+}
+
+@media (orientation: landscape) {
+  .image {
+    width: 75dvw;
+    height: 100dvh;
+  }
+
+  .photo {
+    top: 0;
+    width: 25dvw;
+    left: 75dvw;
+  }
+}
+
+@media (orientation: portrait) {
+  .image {
+    width: 100dvw;
+    height: 75dvh;
+  }
+
+  .photo {
+    top: 75dvh;
+    height: 25dvh;
+    left: 0;
+  }
+}
+
+.map {
+  left: 0;
+  top: 0;
+
+  background-image: var(--kings-image-map-url);
+  animation-name: var(--kings-tour-map-animation-name);
+}
+
+.apartment {
+  &:before {
+    content: "Apartment";
+    @include imageBefore;
+  }
+
+  background-image: var(--kings-image-apartment-url);
+  animation-name: var(--kings-tour-apartment-animation-name);
+}
+
+.heroes {
+  &:before {
+    content: "Heroes Square";
+    @include imageBefore;
+  }
+
+  background-image: var(--kings-image-heroes-url);
+  animation-name: var(--kings-tour-heroes-animation-name);
+}
+
+.view {
+  &:before {
+    content: "Buda Castle";
+    @include imageBefore;
+  }
+
+  background-image: var(--kings-image-view-url);
+  animation-name: var(--kings-tour-view-animation-name);
+}
+
+.parliament {
+  &:before {
+    content: "Parliament";
+    @include imageBefore;
+  }
+
+  background-image: var(--kings-image-parliament-url);
+  animation-name: var(--kings-tour-parliament-animation-name);
+}
+
+.culture {
+  &:before {
+    content: "Basilica";
+    @include imageBefore;
+  }
+
+  background-image: var(--kings-image-culture-url);
+  animation-name: var(--kings-tour-culture-animation-name);
+}
+
