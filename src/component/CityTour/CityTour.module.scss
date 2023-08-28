@@ -82,8 +82,11 @@ $animation-duration: 25s;
 @mixin crossHair {
   content: '';
   position: absolute;
-  border-color: theme-var(--color-background-semi-transparent);
-  border-style: dotted;
+  border-color: theme-var(--color-main);
+  border-style: dashed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .map {
@@ -96,17 +99,15 @@ $animation-duration: 25s;
   &:before {
     @include crossHair;
     width: 0;
-    height: 100%;
-    left: 50%;
+    height: var(--spacing-big);
     margin: 0 -1px 0 0;
     border-width: 0 1px 0 0;
   }
 
   &:after {
     @include crossHair;
-    width: 100%;
+    width: var(--spacing-big);
     height: 0;
-    top: 50%;
     margin: -1px 0 0 0;
     border-width: 1px 0 0 0;
   }

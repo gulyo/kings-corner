@@ -1,3 +1,6 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+
 import React, { FC, PropsWithChildren } from "react";
 import { clsx } from "clsx";
 import { useSelector } from "react-redux";
@@ -38,9 +41,7 @@ export const NavigatorLink: FC<PropsWithChildren<NavigatorLinkProps>> = ({
   };
 
   return (
-    <button
-      type="button"
-      disabled={!!navigateTo}
+    <div
       onClick={handleClick}
       className={clsx({
         [styles.navigatorLink]: true,
@@ -49,6 +50,6 @@ export const NavigatorLink: FC<PropsWithChildren<NavigatorLinkProps>> = ({
         [styles.disabled]: !!navigateTo,
       })}>
       {translatedLinkLabel[target]}
-    </button>
+    </div>
   );
 };
