@@ -1,232 +1,127 @@
-// -------------------------------------------- Landscape --------------------------------------------
-
-$apartmentXLandscape: 49%;
-$apartmentYLandscape: 60%;
-
-$heroesXLandscape: 68%;
-$heroesYLandscape: 15%;
-
-$castleXLandscape: 19%;
-$castleYLandscape: 80%;
-
-$parliamentXLandscape: 27%;
-$parliamentYLandscape: 42%;
-
-$basilicaXLandscape: 38%;
-$basilicaYLandscape: 64%;
-
-$zoomOutLandscape: 100;
-$zoomInLandscape: 300;
-
-@mixin apartmentLandscape($zoom) {
-  background-position: $apartmentXLandscape $apartmentYLandscape;
-  background-size: auto calc(#{$zoom} * 1dvh);
+@mixin apartmentOut {
+  background-position: #{var(--kings-tour-poi-apartment-x-out)} #{var(--kings-tour-poi-apartment-y-out)};
+  background-size: #{#{var(--kings-tour-bg-size-x-out)}} #{#{var(--kings-tour-bg-size-y-out)}};
 }
 
-@mixin heroesLandscape($zoom) {
-  background-position: $heroesXLandscape $heroesYLandscape;
-  background-size: auto calc(#{$zoom} * 1dvh);
+@mixin heroesOut {
+  background-position: #{var(--kings-tour-poi-heroes-x-out)} #{var(--kings-tour-poi-heroes-y-out)};
+  background-size: #{var(--kings-tour-bg-size-x-out)} #{var(--kings-tour-bg-size-y-out)};
 }
 
-@mixin castleLandscape($zoom) {
-  background-position: $castleXLandscape $castleYLandscape;
-  background-size: auto calc(#{$zoom} * 1dvh);
+@mixin castleOut {
+  background-position: #{var(--kings-tour-poi-view-x-out)} #{var(--kings-tour-poi-view-y-out)};
+  background-size: #{var(--kings-tour-bg-size-x-out)} #{var(--kings-tour-bg-size-y-out)};
 }
 
-@mixin basilicaLandscape($zoom) {
-  background-position: $basilicaXLandscape $basilicaYLandscape;
-  background-size: auto calc(#{$zoom} * 1dvh);
+@mixin basilicaOut {
+  background-position: #{var(--kings-tour-poi-culture-x-out)} #{var(--kings-tour-poi-culture-y-out)};
+  background-size: #{var(--kings-tour-bg-size-x-out)} #{var(--kings-tour-bg-size-y-out)};
 }
 
-@mixin parliamentLandscape($zoom) {
-  background-position: $parliamentXLandscape $parliamentYLandscape;
-  background-size: auto calc(#{$zoom} * 1dvh);
+@mixin parliamentOut {
+  background-position: #{var(--kings-tour-poi-parliament-x-out)} #{var(--kings-tour-poi-parliament-y-out)};
+  background-size: #{var(--kings-tour-bg-size-x-out)} #{var(--kings-tour-bg-size-y-out)};
 }
 
-@mixin overviewLandscape($zoom) {
-  background-position: $apartmentXLandscape $apartmentYLandscape;
-  background-size: auto calc(#{$zoom} * 1dvh);
+@mixin apartmentIn {
+  background-position: #{var(--kings-tour-poi-apartment-x-in)} #{var(--kings-tour-poi-apartment-y-in)};
+  background-size: #{var(--kings-tour-bg-size-x-in)} #{var(--kings-tour-bg-size-y-in)};
+}
+
+@mixin heroesIn {
+  background-position: #{var(--kings-tour-poi-heroes-x-in)} #{var(--kings-tour-poi-heroes-y-in)};
+  background-size: #{var(--kings-tour-bg-size-x-in)} #{var(--kings-tour-bg-size-y-in)};
+}
+
+@mixin castleIn {
+  background-position: #{var(--kings-tour-poi-view-x-in)} #{var(--kings-tour-poi-view-y-in)};
+  background-size: #{var(--kings-tour-bg-size-x-in)} #{var(--kings-tour-bg-size-y-in)};
+}
+
+@mixin basilicaIn {
+  background-position: #{var(--kings-tour-poi-culture-x-in)} #{var(--kings-tour-poi-culture-y-in)};
+  background-size: #{var(--kings-tour-bg-size-x-in)} #{var(--kings-tour-bg-size-y-in)};
+}
+
+@mixin parliamentIn {
+  background-position: #{var(--kings-tour-poi-parliament-x-in)} #{var(--kings-tour-poi-parliament-y-in)};
+  background-size: #{var(--kings-tour-bg-size-x-in)} #{var(--kings-tour-bg-size-y-in)};
+}
+
+/*
+The animation names of the photos are set from Javascript and restart on orientation change.
+Thus the ame is needed for the map to keep them in sync
+*/
+@mixin mapTour {
+  from {
+    @include apartmentIn();
+  }
+  5% {
+    @include apartmentIn();
+  }
+  10% {
+    @include apartmentOut();
+  }
+  15% {
+    @include heroesOut();
+  }
+  20% {
+    @include heroesIn();
+  }
+  25% {
+    @include heroesIn();
+  }
+  30% {
+    @include heroesOut();
+  }
+  35% {
+    @include castleOut();
+  }
+  40% {
+    @include castleIn();
+  }
+  45% {
+    @include castleIn();
+  }
+  50% {
+    @include castleOut();
+  }
+  55% {
+    @include parliamentOut();
+  }
+  60% {
+    @include parliamentIn();
+  }
+  65% {
+    @include parliamentIn();
+  }
+  70% {
+    @include parliamentOut();
+  }
+  75% {
+    @include basilicaOut();
+  }
+  80% {
+    @include basilicaIn();
+  }
+  85% {
+    @include basilicaIn();
+  }
+  90% {
+    @include basilicaOut();
+  }
+  95% {
+    @include apartmentOut();
+  }
+  to {
+    @include apartmentIn();
+  }
 }
 
 @keyframes mapTourLandscape {
-  from {
-    @include apartmentLandscape($zoomInLandscape);
-  }
-  5% {
-    @include apartmentLandscape($zoomInLandscape);
-  }
-  10% {
-    @include apartmentLandscape($zoomOutLandscape);
-  }
-  15% {
-    @include heroesLandscape($zoomOutLandscape);
-  }
-  20% {
-    @include heroesLandscape($zoomInLandscape);
-  }
-  25% {
-    @include heroesLandscape($zoomInLandscape);
-  }
-  30% {
-    @include heroesLandscape($zoomOutLandscape);
-  }
-  35% {
-    @include castleLandscape($zoomOutLandscape);
-  }
-  40% {
-    @include castleLandscape($zoomInLandscape);
-  }
-  45% {
-    @include castleLandscape($zoomInLandscape);
-  }
-  50% {
-    @include castleLandscape($zoomOutLandscape);
-  }
-  55% {
-    @include parliamentLandscape($zoomOutLandscape);
-  }
-  60% {
-    @include parliamentLandscape($zoomInLandscape);
-  }
-  65% {
-    @include parliamentLandscape($zoomInLandscape);
-  }
-  70% {
-    @include parliamentLandscape($zoomOutLandscape);
-  }
-  75% {
-    @include basilicaLandscape($zoomOutLandscape);
-  }
-  80% {
-    @include basilicaLandscape($zoomInLandscape);
-  }
-  85% {
-    @include basilicaLandscape($zoomInLandscape);
-  }
-  90% {
-    @include basilicaLandscape($zoomOutLandscape);
-  }
-  95% {
-    @include apartmentLandscape($zoomOutLandscape);
-  }
-  to {
-    @include apartmentLandscape($zoomInLandscape);
-  }
-}
-
-
-// -------------------------------------------- Portrait --------------------------------------------
-
-$apartmentXPortrait: 49%;
-$apartmentYPortrait: 64%;
-
-$heroesXPortrait: 70%;
-$heroesYPortrait: 10%;
-
-$castleXPortrait: 15%;
-$castleYPortrait: 89%;
-
-$parliamentXPortrait: 28%;
-$parliamentYPortrait: 45%;
-
-$basilicaXPortrait: 37%;
-$basilicaYPortrait: 68%;
-
-$zoomOutPortrait: 100;
-$zoomInPortrait: 300;
-
-@mixin apartmentPortrait($zoom) {
-  background-position: $apartmentXPortrait $apartmentYPortrait;
-  background-size: calc(#{$zoom} * 1dvw) auto;
-}
-
-@mixin heroesPortrait($zoom) {
-  background-position: $heroesXPortrait $heroesYPortrait;
-  background-size: calc(#{$zoom} * 1dvw) auto;
-}
-
-@mixin castlePortrait($zoom) {
-  background-position: $castleXPortrait $castleYPortrait;
-  background-size: calc(#{$zoom} * 1dvw) auto;
-}
-
-@mixin basilicaPortrait($zoom) {
-  background-position: $basilicaXPortrait $basilicaYPortrait;
-  background-size: calc(#{$zoom} * 1dvw) auto;
-}
-
-@mixin parliamentPortrait($zoom) {
-  background-position: $parliamentXPortrait $parliamentYPortrait;
-  background-size: calc(#{$zoom} * 1dvw) auto;
-}
-
-@mixin overviewPortrait($zoom) {
-  background-position: $apartmentXPortrait $apartmentYPortrait;
-  background-size: calc(#{$zoom} * 1dvw) auto;
+  @include mapTour;
 }
 
 @keyframes mapTourPortrait {
-  from {
-    @include apartmentPortrait($zoomInPortrait);
-  }
-  5% {
-    @include apartmentPortrait($zoomInPortrait);
-  }
-  10% {
-    @include apartmentPortrait($zoomOutPortrait);
-  }
-  15% {
-    @include heroesPortrait($zoomOutPortrait);
-  }
-  20% {
-    @include heroesPortrait($zoomInPortrait);
-  }
-  25% {
-    @include heroesPortrait($zoomInPortrait);
-  }
-  30% {
-    @include heroesPortrait($zoomOutPortrait);
-  }
-  35% {
-    @include castlePortrait($zoomOutPortrait);
-  }
-  40% {
-    @include castlePortrait($zoomInPortrait);
-  }
-  45% {
-    @include castlePortrait($zoomInPortrait);
-  }
-  50% {
-    @include castlePortrait($zoomOutPortrait);
-  }
-  55% {
-    @include parliamentPortrait($zoomOutPortrait);
-  }
-  60% {
-    @include parliamentPortrait($zoomInPortrait);
-  }
-  65% {
-    @include parliamentPortrait($zoomInPortrait);
-  }
-  70% {
-    @include parliamentPortrait($zoomOutPortrait);
-  }
-  75% {
-    @include basilicaPortrait($zoomOutPortrait);
-  }
-  80% {
-    @include basilicaPortrait($zoomInPortrait);
-  }
-  85% {
-    @include basilicaPortrait($zoomInPortrait);
-  }
-  90% {
-    @include basilicaPortrait($zoomOutPortrait);
-  }
-  95% {
-    @include apartmentPortrait($zoomOutPortrait);
-  }
-  to {
-    @include apartmentPortrait($zoomInPortrait);
-  }
+  @include mapTour;
 }

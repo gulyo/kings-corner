@@ -11,6 +11,7 @@ import { ImageUrlContainer } from "../type";
 import { imageNameCssVarMap } from "./imageNameCssVarMap";
 import { ImageRatioContainer } from "./ImageRatioContainer";
 import { ResizeObserverArgs } from "./ResizeObserverArgs";
+import { ImageDimensionsContainer } from "./ImageDimensionsContainer";
 
 export const loadImages = async (): Promise<ResizeObserverArgs> => {
   return new Promise((resolve) => {
@@ -46,7 +47,18 @@ export const loadImages = async (): Promise<ResizeObserverArgs> => {
           }),
           {} as ImageRatioContainer,
         );
-        resolve({ htmlStyle, imageRatioContainer });
+        const imageDimensionContainer: ImageDimensionsContainer =
+          containers.reduce(
+            (res, cur) => ({
+              ...res,
+              [cur.name]: {
+                x: cur.image.naturalWidth,
+                y: cur.image.naturalHeight,
+              },
+            }),
+            {} as ImageDimensionsContainer,
+          );
+        resolve({ htmlStyle, imageRatioContainer, imageDimensionContainer });
       }
     };
 

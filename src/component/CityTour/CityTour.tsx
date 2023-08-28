@@ -1,5 +1,7 @@
 import React, { FC, PropsWithChildren, useEffect, useRef } from "react";
 import styles from "./CityTour.module.scss";
+import { photoLabels } from "./photoLabels";
+import { TourPhoto } from "./TourPhoto";
 
 export const CityTour: FC<PropsWithChildren> = () => {
   const mapRef = useRef<HTMLDivElement>();
@@ -20,16 +22,30 @@ export const CityTour: FC<PropsWithChildren> = () => {
       );
   }, [mapRef]);
 
-  // screen.orientation.addEventListener("change", )
   return (
     <div className={styles.anchor}>
       <div className={`${styles.image} ${styles.map}`} ref={mapRef} />
 
-      <div className={`${styles.image} ${styles.photo} ${styles.apartment}`} />
-      <div className={`${styles.image} ${styles.photo} ${styles.heroes}`} />
-      <div className={`${styles.image} ${styles.photo} ${styles.view}`} />
-      <div className={`${styles.image} ${styles.photo} ${styles.parliament}`} />
-      <div className={`${styles.image} ${styles.photo} ${styles.culture}`} />
+      <TourPhoto
+        className={`${styles.image} ${styles.photo} ${styles.apartment}`}
+        label={photoLabels.APARTMENT}
+      />
+      <TourPhoto
+        className={`${styles.image} ${styles.photo} ${styles.heroes}`}
+        label={photoLabels.HEROES}
+      />
+      <TourPhoto
+        className={`${styles.image} ${styles.photo} ${styles.view}`}
+        label={photoLabels.VIEW}
+      />
+      <TourPhoto
+        className={`${styles.image} ${styles.photo} ${styles.parliament}`}
+        label={photoLabels.PARLIAMENT}
+      />
+      <TourPhoto
+        className={`${styles.image} ${styles.photo} ${styles.culture}`}
+        label={photoLabels.CULTURE}
+      />
     </div>
   );
 };

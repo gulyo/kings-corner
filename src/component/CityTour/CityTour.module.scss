@@ -4,14 +4,16 @@
 @import "./keyframes.tour.heroes";
 @import "./keyframes.tour.parliament";
 @import "./keyframes.tour.view";
+@import "./keyframes.tour.map";
 
 $animation-duration: 25s;
 
 @mixin imageBefore {
+  content: attr(label);
   position: absolute;
-  top: 50%;
+  bottom: 0;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 0);
   padding: var(--spacing-medium);
   background-color: theme-var(--color-background-semi-transparent);
   color: theme-var(--color-main);
@@ -77,17 +79,41 @@ $animation-duration: 25s;
   }
 }
 
+@mixin crossHair {
+  content: '';
+  position: absolute;
+  border-color: theme-var(--color-background-semi-transparent);
+  border-style: dotted;
+}
+
 .map {
   left: 0;
   top: 0;
 
   background-image: var(--kings-image-map-url);
-  animation-name: var(--kings-tour-map-animation-name);
+  animation-name: var(--kings-tour-map-animation-name);;
+
+  &:before {
+    @include crossHair;
+    width: 0;
+    height: 100%;
+    left: 50%;
+    margin: 0 -1px 0 0;
+    border-width: 0 1px 0 0;
+  }
+
+  &:after {
+    @include crossHair;
+    width: 100%;
+    height: 0;
+    top: 50%;
+    margin: -1px 0 0 0;
+    border-width: 1px 0 0 0;
+  }
 }
 
 .apartment {
   &:before {
-    content: "Apartment";
     @include imageBefore;
   }
 
@@ -97,7 +123,6 @@ $animation-duration: 25s;
 
 .heroes {
   &:before {
-    content: "Heroes Square";
     @include imageBefore;
   }
 
@@ -107,7 +132,6 @@ $animation-duration: 25s;
 
 .view {
   &:before {
-    content: "Buda Castle";
     @include imageBefore;
   }
 
@@ -117,7 +141,6 @@ $animation-duration: 25s;
 
 .parliament {
   &:before {
-    content: "Parliament";
     @include imageBefore;
   }
 
@@ -127,7 +150,6 @@ $animation-duration: 25s;
 
 .culture {
   &:before {
-    content: "Basilica";
     @include imageBefore;
   }
 
