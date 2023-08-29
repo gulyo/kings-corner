@@ -75,6 +75,10 @@ export const resizeObserverMapCoordinatesCalculators: ((
 
     htmlStyle.setProperty("--kings-tour-scope-width", `${scope.x}px`);
     htmlStyle.setProperty("--kings-tour-scope-height", `${scope.y}px`);
+    htmlStyle.setProperty(
+      "--kings-tour-scope-shadow-width",
+      `${scope.x / 4}px`,
+    );
     return { ...workbench };
   },
   (htmlStyle) => (workbench) => {

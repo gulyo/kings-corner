@@ -41,7 +41,7 @@ export const orientationAxisMultiplier: {
 export const scopeSizeMultiplier = 0.35;
 
 export const zoomMultiplier: { [zoom in Zoom]: number } = {
-  out: 1.2,
+  out: 1.1,
   in: 4,
 };
 

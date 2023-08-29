@@ -6,7 +6,7 @@
 @import "./keyframes.tour.view";
 @import "./keyframes.tour.map";
 
-$animation-duration: 25s;
+$animation-duration: 20s;
 
 @mixin imageBefore {
   content: attr(label);
@@ -28,8 +28,8 @@ $animation-duration: 25s;
 @mixin crossHair {
   content: '';
   position: absolute;
-  border-color: theme-var(--color-main);
-  border-style: dashed;
+  border-color: theme-var(--color-100);
+  border-style: dotted;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -119,20 +119,23 @@ $animation-duration: 25s;
   @include animationCommon;
 
   border-radius: 50%;
+  border-width: #{var(--spacing-minimal)};
+  border-color: #{theme-var(--color-100)};
+  border-style: solid;
 
-  box-shadow: 0 0 #{var(--spacing-medium)} #{var(--spacing-medium)} #{theme-var(--color-background-more-transparent)} inset;
+  box-shadow: 0 0 #{var(--kings-tour-scope-shadow-width)} #{var(--spacing-medium)} #{theme-var(--color-background-more-transparent)} inset;
 
   &:before {
     @include crossHair;
     width: 0;
-    height: var(--spacing-huge);
+    height: 50%; // var(--spacing-huge);
     margin: 0 -1px 0 0;
     border-width: 0 1px 0 0;
   }
 
   &:after {
     @include crossHair;
-    width: var(--spacing-huge);
+    width: 50%; // var(--spacing-huge);
     height: 0;
     margin: -1px 0 0 0;
     border-width: 1px 0 0 0;
