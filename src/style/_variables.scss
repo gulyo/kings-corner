@@ -10,6 +10,7 @@ $theme-map-light: (
         "--color-background": #ffffff,
         "--color-background-50": #dddddd,
         "--color-background-semi-transparent": rgba(255, 255, 255, .85),
+        "--color-background-more-transparent": rgba(255, 255, 255, .6),
 );
 
 $theme-map-dark: (
@@ -22,4 +23,5 @@ $theme-map-dark: (
         "--color-background": #000000,
         "--color-background-50": #222222,
         "--color-background-semi-transparent": rgba(0, 0, 0, .85),
+        "--color-background-more-transparent": rgba(0, 0, 0, .40),
 );

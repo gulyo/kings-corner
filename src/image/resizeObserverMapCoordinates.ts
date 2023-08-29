@@ -1,19 +1,20 @@
 import { ResizeObserverArgs } from "./ResizeObserverArgs";
 import { resizeObserverMapCoordinatesCalculators } from "./resizeObserverMapCoordinates.calculators";
 import { Coordinates } from "./Coordinates";
+import { derivedDetails } from "./derivedDetails";
 
 let initialized = false;
 
 export const resizeObserverMapCoordinates: (
   args: ResizeObserverArgs,
-) => void = (args) => {
+) => void = ({ htmlStyle, imageDimensionContainer }) => {
   if (initialized) {
     return;
   }
   initialized = true;
 
   const calculators = resizeObserverMapCoordinatesCalculators.map((calc) =>
-    calc(args),
+    calc(htmlStyle),
   );
 
   // Initialising animations
@@ -21,13 +22,20 @@ export const resizeObserverMapCoordinates: (
     x: window.innerWidth,
     y: window.innerHeight,
   };
-  calculators.forEach((calc) => calc(currentDimensions));
+  calculators.reduce((res, calc) => calc(res), {
+    derivedDetails: derivedDetails(imageDimensionContainer, currentDimensions),
+  });
 
   window.addEventListener("resize", () => {
     currentDimensions = {
       x: window.innerWidth,
       y: window.innerHeight,
     };
-    calculators.forEach((calc) => calc(currentDimensions));
+    calculators.reduce((res, calc) => calc(res), {
+      derivedDetails: derivedDetails(
+        imageDimensionContainer,
+        currentDimensions,
+      ),
+    });
   });
 };

@@ -7,7 +7,7 @@ import resourceParliament from "./resource/parliament.jpg";
 import resourceApartment from "./resource/apartment.jpg";
 import { comLogger } from "../util";
 import { store, uiSetImageUrlsAction } from "../redux";
-import { ImageUrlContainer } from "../type";
+import { ImageName, ImageUrlContainer } from "../type";
 import { imageNameCssVarMap } from "./imageNameCssVarMap";
 import { ImageRatioContainer } from "./ImageRatioContainer";
 import { ResizeObserverArgs } from "./ResizeObserverArgs";
@@ -26,10 +26,11 @@ export const loadImages = async (): Promise<ResizeObserverArgs> => {
       HEROES: resourceHeroes,
       PARLIAMENT: resourceParliament,
       APARTMENT: resourceApartment,
+      SCOPE: resourceMap,
     };
     const urls = Object.entries(resources);
 
-    const containers = urls.map(([name, resource]) => ({
+    const containers = urls.map(([name, resource]: [ImageName, string]) => ({
       name,
       url: resource,
       image: new Image(),
@@ -65,7 +66,7 @@ export const loadImages = async (): Promise<ResizeObserverArgs> => {
     containers.forEach(({ image, url, name }) => {
       image.onload = () => {
         increase();
-        htmlStyle.setProperty(imageNameCssVarMap[name].url, `url("${url}")`);
+        htmlStyle.setProperty(imageNameCssVarMap(name), `url("${url}")`);
       };
       image.onerror = () => {
         increase();

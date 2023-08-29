@@ -19,6 +19,22 @@ $animation-duration: 25s;
   color: theme-var(--color-main);
 }
 
+@mixin animationCommon {
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-duration: $animation-duration;
+}
+
+@mixin crossHair {
+  content: '';
+  position: absolute;
+  border-color: theme-var(--color-main);
+  border-style: dashed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .anchor {
   position: fixed;
   overflow: visible;
@@ -40,9 +56,8 @@ $animation-duration: 25s;
   background-position: center;
   background-repeat: no-repeat;
 
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
-  animation-duration: $animation-duration;
+  @include animationCommon;
+
   transform-origin: 50% 50%;
   margin: 0;
   padding: 0;
@@ -79,34 +94,45 @@ $animation-duration: 25s;
   }
 }
 
-@mixin crossHair {
-  content: '';
-  position: absolute;
-  border-color: theme-var(--color-main);
-  border-style: dashed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
 
 .map {
   left: 0;
   top: 0;
 
   background-image: var(--kings-image-map-url);
+  background-size: #{#{var(--kings-tour-bg-size-x-out)}} #{#{var(--kings-tour-bg-size-y-out)}};
+
   animation-name: var(--kings-tour-map-animation-name);;
+}
+
+.scope {
+  position: absolute;
+  transform-origin: 50% 50%;
+  transform: translate(-50%, -50%);
+
+  width: var(--kings-tour-scope-width);
+  height: var(--kings-tour-scope-height);
+  background-image: var(--kings-image-scope-url);
+  background-size: #{var(--kings-tour-bg-size-x-in)} #{var(--kings-tour-bg-size-y-in)};
+
+  animation-name: var(--kings-tour-scope-animation-name);;
+  @include animationCommon;
+
+  border-radius: 50%;
+
+  box-shadow: 0 0 #{var(--spacing-medium)} #{var(--spacing-medium)} #{theme-var(--color-background-more-transparent)} inset;
 
   &:before {
     @include crossHair;
     width: 0;
-    height: var(--spacing-big);
+    height: var(--spacing-huge);
     margin: 0 -1px 0 0;
     border-width: 0 1px 0 0;
   }
 
   &:after {
     @include crossHair;
-    width: var(--spacing-big);
+    width: var(--spacing-huge);
     height: 0;
     margin: -1px 0 0 0;
     border-width: 1px 0 0 0;

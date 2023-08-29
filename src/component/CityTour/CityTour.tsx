@@ -5,14 +5,20 @@ import { TourPhoto } from "./TourPhoto";
 
 export const CityTour: FC<PropsWithChildren> = () => {
   const mapRef = useRef<HTMLDivElement>();
+  const scopeRef = useRef<HTMLDivElement>();
   useEffect(() => {
-    if (!mapRef.current) {
+    if (!mapRef.current || !scopeRef.current) {
       return () => undefined;
     }
     const { current: map } = mapRef;
+    const { current: scope } = scopeRef;
     const orientationHandler = (): void => {
       map.classList.remove(styles.map);
-      setTimeout(() => map.classList.add(styles.map), 1);
+      scope.classList.remove(styles.scope);
+      setTimeout(() => {
+        map.classList.add(styles.map);
+        scope.classList.add(styles.scope);
+      }, 1);
     };
     window.screen.orientation.addEventListener("change", orientationHandler);
     return () =>
@@ -20,11 +26,13 @@ export const CityTour: FC<PropsWithChildren> = () => {
         "change",
         orientationHandler,
       );
-  }, [mapRef]);
+  }, [mapRef, scopeRef]);
 
   return (
     <div className={styles.anchor}>
-      <div className={`${styles.image} ${styles.map}`} ref={mapRef} />
+      <div className={`${styles.image} ${styles.map}`} ref={mapRef}>
+        <div className={styles.scope} ref={scopeRef} />
+      </div>
 
       <TourPhoto
         className={`${styles.image} ${styles.photo} ${styles.apartment}`}

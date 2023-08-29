@@ -7,5 +7,6 @@ export const imageCssNameMap: { [name in ImageName]: string } = {
   MAP: "map",
   PARLIAMENT: "parliament",
   PARTY: "party",
+  SCOPE: "scope",
   VIEW: "view",
 };

@@ -1,4 +1,5 @@
 import "./keyframes.tour.map.scss";
+import "./keyframes.tour.scope.scss";
 
 import "./keyframes.tour.apartment.scss";
 import "./keyframes.tour.heroes.scss";

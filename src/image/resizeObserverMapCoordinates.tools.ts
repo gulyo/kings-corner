@@ -1,11 +1,12 @@
 import { Coordinates } from "./Coordinates";
-import { PoiName } from "./PoiName";
+import { PoiName, pois } from "./PoiName";
 import { imageCssNameMap } from "./ImageCssNameMap";
 import { Axis } from "./Axis";
 import { Orientation } from "../type";
 import { Zoom } from "./Zoom";
+import { ImageDimensionsContainer } from "./ImageDimensionsContainer";
 
-export const poiCoordinates: { [name in PoiName]: Coordinates } = {
+export const poiCoordinates: ImageDimensionsContainer<PoiName> = {
   APARTMENT: { x: 1812, y: 1268 },
   HEROES: { x: 2434, y: 475 },
   VIEW: { x: 874, y: 1604 },
@@ -37,9 +38,11 @@ export const orientationAxisMultiplier: {
   },
 };
 
+export const scopeSizeMultiplier = 0.35;
+
 export const zoomMultiplier: { [zoom in Zoom]: number } = {
-  out: 1,
-  in: 3,
+  out: 1.2,
+  in: 4,
 };
 
 export const limitCoordinate: (arg: {
@@ -53,3 +56,13 @@ export const limitCoordinate: (arg: {
     Math.min(coord, 0),
     -mapDimensions[axis] * lengthMultiplier + screen[axis],
   );
+
+export const createPoiDimensionContainer =
+  (): ImageDimensionsContainer<PoiName> =>
+    pois.reduce(
+      (res, cur) => ({
+        ...res,
+        [cur]: { x: 0, y: 0 } as Coordinates,
+      }),
+      {} as ImageDimensionsContainer<PoiName>,
+    );

@@ -1,102 +1,142 @@
-import { ResizeObserverArgs } from "./ResizeObserverArgs";
 import { pois } from "./PoiName";
 import {
   bgSizeCssVarName,
+  createPoiDimensionContainer,
   limitCoordinate,
-  orientationAxisMultiplier,
   poiCoordinates,
   poiCssVarName,
-  zoomMultiplier,
 } from "./resizeObserverMapCoordinates.tools";
-import { axes, Axis } from "./Axis";
-import { Coordinates } from "./Coordinates";
-import { Orientation } from "../type";
-import { ImageDimensionsContainer } from "./ImageDimensionsContainer";
-import { zooms } from "./Zoom";
+import { axes } from "./Axis";
+import { Zoom } from "./Zoom";
+import { Workbench } from "./Workbench";
+import { imageCssNameMap } from "./ImageCssNameMap";
 
-const derivedDetails = (
-  imageDimensionContainer: ImageDimensionsContainer,
-  dimensions: Coordinates,
-): {
-  screen: Coordinates;
-  ratio: number;
-  orientation: Orientation;
-  mapDimensions: Coordinates;
-  mainAxis: Axis;
-} => {
-  const screenOrientation: Orientation =
-    dimensions.x >= dimensions.y ? "landscape" : "portrait";
-
-  const x = dimensions.x * orientationAxisMultiplier[screenOrientation].x;
-  const y = dimensions.y * orientationAxisMultiplier[screenOrientation].y;
-  const ratio = x / y;
-  const orientation: Orientation = ratio >= 1 ? "landscape" : "portrait";
-
-  const mapDimensions = imageDimensionContainer.MAP;
-
-  const mainAxis: Axis = mapDimensions.x / mapDimensions.y < ratio ? "x" : "y";
-
-  return {
-    screen: {
-      x,
-      y,
-    },
-    ratio,
-    orientation,
-    mapDimensions,
-    mainAxis,
-  };
-};
-
+/**
+ * IMPORTANT: I needed some way of communicating among calculator functions.
+ * So, now the order is important, some functions depend on each other.
+ */
 export const resizeObserverMapCoordinatesCalculators: ((
-  arg: ResizeObserverArgs,
-) => (dimensions: Coordinates) => void)[] = [
-  ({ htmlStyle, imageDimensionContainer }) =>
-    (dimensions) => {
-      const { screen, mapDimensions, mainAxis } = derivedDetails(
-        imageDimensionContainer,
-        dimensions,
-      );
+  htmlStyle: CSSStyleDeclaration,
+) => (workbench: Workbench) => Workbench)[] = [
+  (htmlStyle) => (workbench) => {
+    // Map PoiCoordinates
+    const { screen, mapDimensions, mainAxis, derivedZoomMultiplier } =
+      workbench.derivedDetails;
 
-      zooms.forEach((zoom) => {
-        const lengthMultiplier =
-          (screen[mainAxis] * zoomMultiplier[zoom]) / mapDimensions[mainAxis];
-        axes.forEach((axis) => {
-          pois.forEach((poi) => {
-            const coord = limitCoordinate({
-              coord:
-                -(poiCoordinates[poi][axis] * lengthMultiplier) +
-                screen[axis] / 2,
-              mapDimensions,
-              screen,
-              axis,
-              lengthMultiplier,
-            });
-            htmlStyle.setProperty(poiCssVarName(poi, axis, zoom), `${coord}px`);
-          });
+    const zoom: Zoom = "out";
+    const lengthMultiplier =
+      (screen[mainAxis] * derivedZoomMultiplier[zoom]) /
+      mapDimensions[mainAxis];
+
+    const limitedPoiCoordinatesDifferenceMap = createPoiDimensionContainer();
+
+    axes.forEach((axis) => {
+      pois.forEach((poi) => {
+        const coord =
+          -(poiCoordinates[poi][axis] * lengthMultiplier) + screen[axis] / 2;
+        const coordLimited = limitCoordinate({
+          coord,
+          screen,
+          mapDimensions,
+          lengthMultiplier,
+          axis,
         });
+        htmlStyle.setProperty(
+          poiCssVarName(poi, axis, zoom),
+          `${coordLimited}px`,
+        );
+        limitedPoiCoordinatesDifferenceMap[poi][axis] = coordLimited - coord;
       });
-    },
-  ({ htmlStyle, imageDimensionContainer }) =>
-    (dimensions) => {
-      const { screen, mainAxis } = derivedDetails(
-        imageDimensionContainer,
-        dimensions,
-      );
+    });
+    return { ...workbench, limitedPoiCoordinatesDifferenceMap };
+  },
+  (htmlStyle) => (workbench) => {
+    // Map zoom
+    const { screen, mainAxis, derivedZoomMultiplier } =
+      workbench.derivedDetails;
+    const zoom: Zoom = "out";
+    const length = screen[mainAxis] * derivedZoomMultiplier[zoom];
+    switch (mainAxis) {
+      case "x":
+        htmlStyle.setProperty(bgSizeCssVarName("x", zoom), `${length}px`);
+        htmlStyle.setProperty(bgSizeCssVarName("y", zoom), `auto`);
+        break;
+      case "y":
+        htmlStyle.setProperty(bgSizeCssVarName("x", zoom), `auto`);
+        htmlStyle.setProperty(bgSizeCssVarName("y", zoom), `${length}px`);
+        break;
+      default:
+    }
+    return { ...workbench };
+  },
+  (htmlStyle) => (workbench) => {
+    // Scope dimensions
+    const { scope } = workbench.derivedDetails;
 
-      zooms.forEach((zoom) => {
-        const length = screen[mainAxis] * zoomMultiplier[zoom];
-        switch (mainAxis) {
-          case "x":
-            htmlStyle.setProperty(bgSizeCssVarName("x", zoom), `${length}px`);
-            htmlStyle.setProperty(bgSizeCssVarName("y", zoom), `auto`);
-            break;
-          case "y":
-            htmlStyle.setProperty(bgSizeCssVarName("x", zoom), `auto`);
-            htmlStyle.setProperty(bgSizeCssVarName("y", zoom), `${length}px`);
-            break;
-          default:
-        }
+    htmlStyle.setProperty("--kings-tour-scope-width", `${scope.x}px`);
+    htmlStyle.setProperty("--kings-tour-scope-height", `${scope.y}px`);
+    return { ...workbench };
+  },
+  (htmlStyle) => (workbench) => {
+    // Scope Poi Coordinates
+    const { scope, scopeMainAxis, scopeDimensions, derivedZoomMultiplier } =
+      workbench.derivedDetails;
+
+    const zoom: Zoom = "in";
+    const lengthMultiplier =
+      (scope[scopeMainAxis] * derivedZoomMultiplier[zoom]) /
+      scopeDimensions[scopeMainAxis];
+
+    axes.forEach((axis) => {
+      pois.forEach((poi) => {
+        const coord = limitCoordinate({
+          coord:
+            -(poiCoordinates[poi][axis] * lengthMultiplier) + scope[axis] / 2,
+          screen: scope,
+          mapDimensions: scopeDimensions,
+          lengthMultiplier,
+          axis,
+        });
+        htmlStyle.setProperty(poiCssVarName(poi, axis, zoom), `${coord}px`);
       });
-    },
+    });
+    return { ...workbench };
+  },
+  (htmlStyle) => (workbench) => {
+    // Scope zoom
+    const { scope, scopeMainAxis, derivedZoomMultiplier } =
+      workbench.derivedDetails;
+    const zoom: Zoom = "in";
+    const length = scope[scopeMainAxis] * derivedZoomMultiplier[zoom];
+    switch (scopeMainAxis) {
+      case "x":
+        htmlStyle.setProperty(bgSizeCssVarName("x", zoom), `${length}px`);
+        htmlStyle.setProperty(bgSizeCssVarName("y", zoom), `auto`);
+        break;
+      case "y":
+        htmlStyle.setProperty(bgSizeCssVarName("x", zoom), `auto`);
+        htmlStyle.setProperty(bgSizeCssVarName("y", zoom), `${length}px`);
+        break;
+      default:
+    }
+    return { ...workbench };
+  },
+  (htmlStyle) => (workbench) => {
+    // Scope position
+
+    const { limitedPoiCoordinatesDifferenceMap } = workbench;
+    const { screen } = workbench.derivedDetails;
+
+    pois.forEach((poi) => {
+      const diff = limitedPoiCoordinatesDifferenceMap[poi];
+      axes.forEach((axis) => {
+        htmlStyle.setProperty(
+          `--kings-tour-scope-position-${imageCssNameMap[poi]}-${axis}`,
+          `${screen[axis] / 2 + diff[axis]}px`,
+        );
+      });
+    });
+
+    return { ...workbench };
+  },
 ];

@@ -1,51 +1,21 @@
 @mixin apartmentOut {
   background-position: #{var(--kings-tour-poi-apartment-x-out)} #{var(--kings-tour-poi-apartment-y-out)};
-  background-size: #{#{var(--kings-tour-bg-size-x-out)}} #{#{var(--kings-tour-bg-size-y-out)}};
 }
 
 @mixin heroesOut {
   background-position: #{var(--kings-tour-poi-heroes-x-out)} #{var(--kings-tour-poi-heroes-y-out)};
-  background-size: #{var(--kings-tour-bg-size-x-out)} #{var(--kings-tour-bg-size-y-out)};
 }
 
 @mixin castleOut {
   background-position: #{var(--kings-tour-poi-view-x-out)} #{var(--kings-tour-poi-view-y-out)};
-  background-size: #{var(--kings-tour-bg-size-x-out)} #{var(--kings-tour-bg-size-y-out)};
 }
 
 @mixin basilicaOut {
   background-position: #{var(--kings-tour-poi-culture-x-out)} #{var(--kings-tour-poi-culture-y-out)};
-  background-size: #{var(--kings-tour-bg-size-x-out)} #{var(--kings-tour-bg-size-y-out)};
 }
 
 @mixin parliamentOut {
   background-position: #{var(--kings-tour-poi-parliament-x-out)} #{var(--kings-tour-poi-parliament-y-out)};
-  background-size: #{var(--kings-tour-bg-size-x-out)} #{var(--kings-tour-bg-size-y-out)};
-}
-
-@mixin apartmentIn {
-  background-position: #{var(--kings-tour-poi-apartment-x-in)} #{var(--kings-tour-poi-apartment-y-in)};
-  background-size: #{var(--kings-tour-bg-size-x-in)} #{var(--kings-tour-bg-size-y-in)};
-}
-
-@mixin heroesIn {
-  background-position: #{var(--kings-tour-poi-heroes-x-in)} #{var(--kings-tour-poi-heroes-y-in)};
-  background-size: #{var(--kings-tour-bg-size-x-in)} #{var(--kings-tour-bg-size-y-in)};
-}
-
-@mixin castleIn {
-  background-position: #{var(--kings-tour-poi-view-x-in)} #{var(--kings-tour-poi-view-y-in)};
-  background-size: #{var(--kings-tour-bg-size-x-in)} #{var(--kings-tour-bg-size-y-in)};
-}
-
-@mixin basilicaIn {
-  background-position: #{var(--kings-tour-poi-culture-x-in)} #{var(--kings-tour-poi-culture-y-in)};
-  background-size: #{var(--kings-tour-bg-size-x-in)} #{var(--kings-tour-bg-size-y-in)};
-}
-
-@mixin parliamentIn {
-  background-position: #{var(--kings-tour-poi-parliament-x-in)} #{var(--kings-tour-poi-parliament-y-in)};
-  background-size: #{var(--kings-tour-bg-size-x-in)} #{var(--kings-tour-bg-size-y-in)};
 }
 
 /*
@@ -54,67 +24,37 @@ Thus the ame is needed for the map to keep them in sync
 */
 @mixin mapTour {
   from {
-    @include apartmentIn();
+    @include apartmentOut();
   }
   5% {
-    @include apartmentIn();
-  }
-  10% {
     @include apartmentOut();
-  }
-  15% {
-    @include heroesOut();
   }
   20% {
-    @include heroesIn();
-  }
-  25% {
-    @include heroesIn();
-  }
-  30% {
     @include heroesOut();
   }
-  35% {
-    @include castleOut();
+  25% {
+    @include heroesOut();
   }
   40% {
-    @include castleIn();
-  }
-  45% {
-    @include castleIn();
-  }
-  50% {
     @include castleOut();
   }
-  55% {
-    @include parliamentOut();
+  45% {
+    @include castleOut();
   }
   60% {
-    @include parliamentIn();
-  }
-  65% {
-    @include parliamentIn();
-  }
-  70% {
     @include parliamentOut();
   }
-  75% {
-    @include basilicaOut();
+  65% {
+    @include parliamentOut();
   }
   80% {
-    @include basilicaIn();
-  }
-  85% {
-    @include basilicaIn();
-  }
-  90% {
     @include basilicaOut();
   }
-  95% {
-    @include apartmentOut();
+  85% {
+    @include basilicaOut();
   }
   to {
-    @include apartmentIn();
+    @include apartmentOut();
   }
 }
 

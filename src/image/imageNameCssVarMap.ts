@@ -1,27 +1,5 @@
 import { ImageName } from "../type";
+import { imageCssNameMap } from "./ImageCssNameMap";
 
-export const imageNameCssVarMap: {
-  [key in ImageName]: { url: string };
-} = {
-  MAP: {
-    url: "--kings-image-map-url",
-  },
-  CULTURE: {
-    url: "--kings-image-culture-url",
-  },
-  VIEW: {
-    url: "--kings-image-view-url",
-  },
-  PARTY: {
-    url: "--kings-image-party-url",
-  },
-  HEROES: {
-    url: "--kings-image-heroes-url",
-  },
-  PARLIAMENT: {
-    url: "--kings-image-parliament-url",
-  },
-  APARTMENT: {
-    url: "--kings-image-apartment-url",
-  },
-};
+export const imageNameCssVarMap = (name: ImageName): string =>
+  `--kings-image-${imageCssNameMap[name]}-url`;

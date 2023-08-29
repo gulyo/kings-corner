@@ -28,6 +28,7 @@ export const resizeObserverVariablesCalculators: ((
           "PARLIAMENT",
           "CULTURE",
           "MAP",
+          "SCOPE",
         ] as ImageName[]
       ).forEach((name) => {
         htmlStyle.setProperty(

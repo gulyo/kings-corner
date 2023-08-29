@@ -1,0 +1,77 @@
+@mixin apartmentIn {
+  background-position: #{var(--kings-tour-poi-apartment-x-in)} #{var(--kings-tour-poi-apartment-y-in)};
+  left: #{var(--kings-tour-scope-position-apartment-x)};
+  top: #{var(--kings-tour-scope-position-apartment-y)};
+}
+
+@mixin heroesIn {
+  background-position: #{var(--kings-tour-poi-heroes-x-in)} #{var(--kings-tour-poi-heroes-y-in)};
+  left: #{var(--kings-tour-scope-position-heroes-x)};
+  top: #{var(--kings-tour-scope-position-heroes-y)};
+}
+
+@mixin castleIn {
+  background-position: #{var(--kings-tour-poi-view-x-in)} #{var(--kings-tour-poi-view-y-in)};
+  left: #{var(--kings-tour-scope-position-view-x)};
+  top: #{var(--kings-tour-scope-position-view-y)};
+}
+
+@mixin basilicaIn {
+  background-position: #{var(--kings-tour-poi-culture-x-in)} #{var(--kings-tour-poi-culture-y-in)};
+  left: #{var(--kings-tour-scope-position-culture-x)};
+  top: #{var(--kings-tour-scope-position-culture-y)};
+}
+
+@mixin parliamentIn {
+  background-position: #{var(--kings-tour-poi-parliament-x-in)} #{var(--kings-tour-poi-parliament-y-in)};
+  left: #{var(--kings-tour-scope-position-parliament-x)};
+  top: #{var(--kings-tour-scope-position-parliament-y)};
+}
+
+/*
+The animation names of the photos are set from Javascript and restart on orientation change.
+Thus the ame is needed for the map to keep them in sync
+*/
+@mixin scopeTour {
+  from {
+    @include apartmentIn();
+  }
+  5% {
+    @include apartmentIn();
+  }
+  20% {
+    @include heroesIn();
+  }
+  25% {
+    @include heroesIn();
+  }
+  40% {
+    @include castleIn();
+  }
+  45% {
+    @include castleIn();
+  }
+  60% {
+    @include parliamentIn();
+  }
+  65% {
+    @include parliamentIn();
+  }
+  80% {
+    @include basilicaIn();
+  }
+  85% {
+    @include basilicaIn();
+  }
+  to {
+    @include apartmentIn();
+  }
+}
+
+@keyframes scopeTourLandscape {
+  @include scopeTour;
+}
+
+@keyframes scopeTourPortrait {
+  @include scopeTour;
+}
